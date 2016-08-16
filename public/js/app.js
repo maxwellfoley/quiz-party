@@ -20,12 +20,7 @@ angular.module("contactsApp", ['ngRoute'])
             })
             .when("/quiz", {
               templateUrl: "quizlet.html",
-              controller: "HelloWorldController",
-              resolve: {
-                  contacts: function(Contacts) {
-                      return Contacts.getContacts();
-                  }
-              }
+              controller: "HelloWorldController"
             })
             .otherwise({
                 redirectTo: "/"
