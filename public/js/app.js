@@ -3,7 +3,7 @@ angular.module("contactsApp", ['ngRoute'])
         $routeProvider
             .when("/", {
                 templateUrl: "quizlet.html",
-                controller: "ListController",
+                controller: "HelloWorldController",
                 resolve: {
                     contacts: function(Contacts) {
                         return Contacts.getContacts();
