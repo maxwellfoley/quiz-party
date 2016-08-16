@@ -89,6 +89,14 @@ angular.module("contactsApp", ['ngRoute'])
     })
     .controller("FunkyController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
+
+
+        $scope.pieces = [
+         {title:"tomb of the first emperor of qin",period:"qin dynasty",country:"china",material:"terra cotta",image:"1.jpg"},
+         {title:"taotie mask",period:"western zhou dynasty",country:"china",material:"bronze",image:"2.jpg"},
+         {title:"tripod wine vessel with design of zoomorphic masks",period:"shang dynasty",country:"china",material:"bronze",image:"3.png"},
+         {title:"covered wine vessel with design of zoomorphic masks and animal headed handles",period:"western zhou dynasty",country:"china",material:"bronze",image:"4.jpg"}
+        ];
         $scope.quizMode = true;
 
 
