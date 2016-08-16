@@ -89,6 +89,9 @@ angular.module("contactsApp", ['ngRoute'])
     })
     .controller("FunkyController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
+        $scope.quizMode = true;
+
+
     })
     .controller("NewContactController", function($scope, $location, Contacts) {
         $scope.back = function() {
