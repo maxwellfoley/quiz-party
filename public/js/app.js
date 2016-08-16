@@ -12,7 +12,7 @@ angular.module("contactsApp", ['ngRoute'])
             })
             .when("/test", {
                     templateUrl: "list.html",
-                    controller: "ListController2",
+                    controller: "FunkyController",
                     resolve: {
                         contacts: function(Contacts) {
                             return Contacts.getContacts();
@@ -87,7 +87,7 @@ angular.module("contactsApp", ['ngRoute'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
     })
-    .controller("ListController2", function(contacts, $scope) {
+    .controller("FunkyController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
     })
     .controller("NewContactController", function($scope, $location, Contacts) {
