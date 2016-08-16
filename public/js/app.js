@@ -21,11 +21,7 @@ angular.module("contactsApp", ['ngRoute'])
             .when("/quiz", {
               templateUrl: "quizlet.html",
               controller: "HelloWorldController"
-              resolve: {
-                  contacts: function(Contacts) {
-                      return Contacts.getContacts();
-                  }
-              }
+
             })
             .otherwise({
                 redirectTo: "/"
@@ -123,7 +119,7 @@ angular.module("contactsApp", ['ngRoute'])
             Contacts.deleteContact(contactId);
         }
     })
-    .controller('HelloWorldController', function(contacts, $scope){
+    .controller('HelloWorldController', function( $scope){
 
       // $scope.contacts = Contacts.getContacts();
 
