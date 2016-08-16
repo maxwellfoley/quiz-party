@@ -126,6 +126,15 @@
     </div>
 
   </div>
+  <table class="table table-hover">
+    <tbody>
+      <tr ng-repeat="contact in contacts | orderBy:'lastName'" style="cursor:pointer">
+        <td>
+          <a ng-href="#/contact/{{contact._id}}">{{ contact.firstName }} {{ contact.lastName }}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 </body>
