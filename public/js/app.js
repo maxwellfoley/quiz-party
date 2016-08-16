@@ -97,8 +97,58 @@ angular.module("contactsApp", ['ngRoute'])
          {title:"tripod wine vessel with design of zoomorphic masks",period:"shang dynasty",country:"china",material:"bronze",image:"3.png"},
          {title:"covered wine vessel with design of zoomorphic masks and animal headed handles",period:"western zhou dynasty",country:"china",material:"bronze",image:"4.jpg"}
         ];
+
+
+        var a = Math.floor( Math.random()* $scope.pieces.length);
+
         $scope.quizMode = true;
 
+        $scope.originalLength = $scope.pieces.length;
+        $scope.current = $scope.pieces[a];
+        $scope.currentIndex= a;
+
+        $scope.next = function(){
+            var a = Math.floor( Math.random()* $scope.pieces.length);
+            $scope.current = $scope.pieces[a];
+            $scope.currentIndex = a;
+            $scope.phaseOne = false;
+        };
+
+        $scope.submitGuess = function(){
+             $scope.phaseOne = true;
+             $scope.correct = []
+             $scope.correct[0] = ($scope.guess.title == $scope.current.title);
+             $scope.correct[1] = ($scope.guess.artist == $scope.current.artist);
+             $scope.correct[2] = ($scope.guess.country == $scope.current.country);
+             $scope.correct[3] = ($scope.guess.period == $scope.current.period);
+             $scope.correct[4] = ($scope.guess.material == $scope.current.material);
+
+             $scope.allCorrect = ($scope.correct[0] || !$scope.current.title) &&
+               ($scope.correct[1] || !$scope.current.artist) &&
+               ($scope.correct[2] || !$scope.current.country) &&
+               ($scope.correct[3] || !$scope.current.period) &&
+               ($scope.correct[4] || !$scope.current.material);
+
+
+        }
+
+        $scope.right = function(){
+             $scope.pieces.splice($scope.currentIndex, 1);
+
+            var a = Math.floor( Math.random()* $scope.pieces.length);
+            $scope.current = $scope.pieces[a];
+             $scope.currentIndex = a;
+            $scope.phaseOne = false;
+            $scope.guess = [];
+        }
+
+        $scope.wrong = function(){
+            var a = Math.floor( Math.random()* $scope.pieces.length);
+            $scope.current = $scope.pieces[a];
+             $scope.currentIndex = a;
+            $scope.phaseOne = false;
+            $scope.guess = [];
+        }        
 
     })
     .controller("NewContactController", function($scope, $location, Contacts) {
