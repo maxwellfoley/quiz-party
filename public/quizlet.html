@@ -21,9 +21,10 @@
 
 </head>
 <body>
-
+<!--
 <div ng-app="HelloWorldApp" class="container">
   <div ng-controller="HelloWorldController">
+-->
     <div id="quizItself" ng-show="quizMode">
       <h2>Guess the image</h2>
       <p class="text-center"><img ng-src="asian/{{current.image}}" class="img-rounded mainQuiz"></p><br>
@@ -124,20 +125,22 @@
       <input type="Submit" ng-click="quizMode=true" value="Get quizzed">
 
     </div>
+    <table class="table table-hover">
+      <tbody>
+        <tr ng-repeat="contact in contacts | orderBy:'lastName'" style="cursor:pointer">
+          <td>
+            <a ng-href="#/contact/{{contact._id}}">{{ contact.firstName }} {{ contact.lastName }}</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
+<!--
   </div>
 
 
-  <table class="table table-hover">
-    <tbody>
-      <tr ng-repeat="contact in contacts | orderBy:'lastName'" style="cursor:pointer">
-        <td>
-          <a ng-href="#/contact/{{contact._id}}">{{ contact.firstName }} {{ contact.lastName }}</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 
+</div>
+-->
 </body>
 </html>
