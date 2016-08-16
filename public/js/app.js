@@ -123,7 +123,7 @@ angular.module("contactsApp", ['ngRoute'])
             Contacts.deleteContact(contactId);
         }
     })
-    .controller('HelloWorldController', function($scope){
+    .controller('HelloWorldController', function(contacts, $scope){
 
       // $scope.contacts = Contacts.getContacts();
 
