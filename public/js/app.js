@@ -2,8 +2,8 @@ angular.module("contactsApp", ['ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
-                templateUrl: "quizlet.html",
-                controller: "HelloWorldController",
+                templateUrl: "list.html",
+                controller: "ListController",
                 resolve: {
                     contacts: function(Contacts) {
                         return Contacts.getContacts();
@@ -124,6 +124,8 @@ angular.module("contactsApp", ['ngRoute'])
         }
     })
     .controller('HelloWorldController', function($scope, contacts){
+
+       $scope.contacts = Contacts.getContacts();
 
        $scope.pieces = [
         {title:"tomb of the first emperor of qin",period:"qin dynasty",country:"china",material:"terra cotta",image:"1.jpg"},
