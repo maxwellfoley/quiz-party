@@ -2,7 +2,7 @@ angular.module("contactsApp", ['ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
-                templateUrl: "list.html",
+                templateUrl: "quizlet.html",
                 controller: "ListController",
                 resolve: {
                     contacts: function(Contacts) {
@@ -17,6 +17,15 @@ angular.module("contactsApp", ['ngRoute'])
             .when("/contact/:contactId", {
                 controller: "EditContactController",
                 templateUrl: "contact.html"
+            })
+            .when("/quiz", {
+              templateUrl: "quizlet.html",
+              controller: "HelloWorldController",
+              resolve: {
+                  contacts: function(Contacts) {
+                      return Contacts.getContacts();
+                  }
+              }
             })
             .otherwise({
                 redirectTo: "/"
@@ -114,7 +123,7 @@ angular.module("contactsApp", ['ngRoute'])
             Contacts.deleteContact(contactId);
         }
     })
-    .controller('HelloWorldController', function($scope, Contacts){
+    .controller('HelloWorldController', function($scope, contacts){
 
        $scope.contacts = Contacts.getContacts();
 
