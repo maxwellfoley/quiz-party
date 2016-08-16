@@ -21,10 +21,7 @@ angular.module("contactsApp", ['ngRoute'])
             .when("/quiz", {
               templateUrl: "quizlet.html",
               controller: "HelloWorldController"
-              resolve: {
-                  love: function(){
-                      return "love";
-                  }
+
               }
 
             })
