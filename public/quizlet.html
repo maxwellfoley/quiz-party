@@ -6,14 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="angular.min.js"></script>
-  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <style type="text/css">
-    img.mainQuiz {max-width:500px; max-height:500px;}    
+    img.mainQuiz {max-width:500px; max-height:500px;}
   </style>
-  
-  
+
+
   <script type="text/javascript">
       var app = angular.module('HelloWorldApp', []);
       app.controller('HelloWorldController', function($scope){
@@ -62,22 +61,22 @@
           {title:"churning the sea of milk",period:"khmer empire",country:"cambodia",image:"41.jpg"},
           {title:"bayon temple",period:"khmer empire",country:"cambodia",image:"42.jpg"}
          ];
-         
+
          var a = Math.floor( Math.random()* $scope.pieces.length);
 
          $scope.quizMode = true;
-         
+
          $scope.originalLength = $scope.pieces.length;
          $scope.current = $scope.pieces[a];
          $scope.currentIndex= a;
-         
+
          $scope.next = function(){
              var a = Math.floor( Math.random()* $scope.pieces.length);
              $scope.current = $scope.pieces[a];
              $scope.currentIndex = a;
              $scope.phaseOne = false;
          };
-         
+
          $scope.submitGuess = function(){
               $scope.phaseOne = true;
               $scope.correct = []
@@ -86,16 +85,16 @@
               $scope.correct[2] = ($scope.guess.country == $scope.current.country);
               $scope.correct[3] = ($scope.guess.period == $scope.current.period);
               $scope.correct[4] = ($scope.guess.material == $scope.current.material);
-              
+
               $scope.allCorrect = ($scope.correct[0] || !$scope.current.title) &&
                 ($scope.correct[1] || !$scope.current.artist) &&
                 ($scope.correct[2] || !$scope.current.country) &&
                 ($scope.correct[3] || !$scope.current.period) &&
                 ($scope.correct[4] || !$scope.current.material);
 
-              
+
          }
-         
+
          $scope.right = function(){
               $scope.pieces.splice($scope.currentIndex, 1);
 
@@ -113,7 +112,7 @@
              $scope.phaseOne = false;
              $scope.guess = [];
          }
-                        
+
       });
       /*
       app.directive('correctAnswer', function() {
@@ -123,34 +122,34 @@
           }
         };
       });*/
-      
+
       app.directive('helloWorld', function() {
         var directive = {};
-        
+
         directive.restrict = 'AE';
         directive.replace = 'true';
-        
+
         directive.scope={};//key:"uh"};
         //directive.scope.bart = "Shart";
         directive.template = '<h3>Hello World!!</h3>';// {{key}}';
-         
-      
+
+
         return directive;
       });
 
     app.directive("ooo", function(){
-        
-        
+
+
       return {
              restrict: "EA",
              scope: {
                  name: "@"
              },
-             template: 'Correct answer: {{name}} '   
+             template: 'Correct answer: {{name}} '
          };
     });
 
-  
+
   </script>
 
 
@@ -174,10 +173,10 @@
               <div ng-hide="correct[0]"><p class="text-danger">Correct answer: {{current.title}}</p></div>
               </h5>
             </div>
-  
+
           </div>
         </div>
-  
+
         <div class="form-group" ng-show="current.artist">
           <label class="control-label col-sm-2" for="artist">Artist:</label>
           <div class="col-sm-10">
@@ -228,32 +227,32 @@
         </div>
         <p class="text-center">
           <input type="submit" value="Submit guess" ng-hide="phaseOne" ng-click="submitGuess()">
-            
-            
+
+
           <input type="Submit" value="Continue (nice job!)" ng-show="phaseOne && allCorrect" ng-click="right()">
           <input type="Submit" value="Continue" ng-show="phaseOne && !allCorrect" ng-click="wrong()">
-  
+
           <input type="Submit" value="Override: I was correct" ng-show="phaseOne && !allCorrect" ng-click="right()">
-  
+
         <br>
         <br>
         {{pieces.length}} remaining out of {{originalLength}}
-      
+
         <br>
         <br>
        <!-- <input type="Submit" ng-click="quizMode=false" value="Edit cards">-->
-        
+
         </p>
         <br>
       </form>
     </div>
     <div id="changeCards" ng-hide="quizMode">
       <div id="cards" style="overflow:scroll; border:3px black solid; height:80vh">
-      
+
         <div ng-repeat="piece in pieces" style="margin:5px; border:1px #aaa solid">
            {{piece.title}}, {{piece.artist}}, {{piece.material}}, {{piece.country}}, {{piece.period}}<br>
-         
-         
+
+
         </div>
       </div>
       <input type="Submit" ng-click="quizMode=true" value="Get quizzed">
@@ -265,4 +264,3 @@
 
 </body>
 </html>
-
