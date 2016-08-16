@@ -11,7 +11,7 @@ angular.module("contactsApp", ['ngRoute'])
                 }
             })
             .when("/test", {
-                    templateUrl: "list.html",
+                    templateUrl: "quizlet.html",
                     controller: "FunkyController",
                     resolve: {
                         contacts: function(Contacts) {
