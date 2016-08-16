@@ -21,7 +21,6 @@ angular.module("contactsApp", ['ngRoute'])
             .when("/quiz", {
               templateUrl: "quizlet.html",
               controller: "HelloWorldController"
-              }
             })
             .otherwise({
                 redirectTo: "/"
