@@ -148,7 +148,7 @@ angular.module("contactsApp", ['ngRoute'])
              $scope.currentIndex = a;
             $scope.phaseOne = false;
             $scope.guess = [];
-        }        
+        }
 
     })
     .controller("NewContactController", function($scope, $location, Contacts) {
