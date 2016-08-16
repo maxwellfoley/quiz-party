@@ -14,7 +14,7 @@ angular.module("contactsApp", ['ngRoute'])
                     templateUrl: "quizlet.html",
                     controller: "FunkyController",
                     resolve: {
-                        contacts: function(Contacts) {
+                        cards: function(Contacts) {
                             return Contacts.getContacts();
                         }
                     }
@@ -87,7 +87,7 @@ angular.module("contactsApp", ['ngRoute'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
     })
-    .controller("FunkyController", function(contacts, $scope) {
+    .controller("FunkyController", function(cards, $scope) {
         $scope.contacts = contacts.data;
 
 
