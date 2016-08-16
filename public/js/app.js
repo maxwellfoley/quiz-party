@@ -10,6 +10,15 @@ angular.module("contactsApp", ['ngRoute'])
                     }
                 }
             })
+            .when("/test", {
+                    templateUrl: "list.html",
+                    controller: "ListController",
+                    resolve: {
+                        contacts: function(Contacts) {
+                            return Contacts.getContacts();
+                        }
+                    }
+                })
             .when("/new/contact", {
                 controller: "NewContactController",
                 templateUrl: "contact-form.html"
