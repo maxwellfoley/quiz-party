@@ -118,9 +118,9 @@ angular.module("contactsApp", ['ngRoute'])
             Contacts.deleteContact(contactId);
         }
     })
-    .controller('HelloWorldController', function($scope, contacts){
+    .controller('HelloWorldController', function($scope){
 
-       $scope.contacts = Contacts.getContacts();
+      // $scope.contacts = Contacts.getContacts();
 
        $scope.pieces = [
         {title:"tomb of the first emperor of qin",period:"qin dynasty",country:"china",material:"terra cotta",image:"1.jpg"},
