@@ -232,25 +232,4 @@ angular.module("contactsApp", ['ngRoute'])
            $scope.guess = [];
        }
 
-    })
-    .directive('helloWorld', function() {
-      var directive = {};
-
-      directive.restrict = 'AE';
-      directive.replace = 'true';
-
-      directive.scope={};//key:"uh"};
-      //directive.scope.bart = "Shart";
-      directive.template = '<h3>Hello World!!</h3>';// {{key}}';
-
-      return directive;
-    })
-    .directive("ooo", function(){
-      return {
-           restrict: "EA",
-           scope: {
-               name: "@"
-           },
-           template: 'Correct answer: {{name}} '
-       };
-  });
+    });
