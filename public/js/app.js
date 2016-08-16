@@ -88,7 +88,7 @@ angular.module("contactsApp", ['ngRoute'])
         $scope.contacts = contacts.data;
     })
     .controller("FunkyController", function(cards, $scope) {
-        $scope.contacts = contacts.data;
+        $scope.contacts = cards.data;
 
 
         $scope.pieces = [
