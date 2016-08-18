@@ -30,7 +30,15 @@ angular.module("contactsApp", ['ngRoute'])
             .when("/quiz", {
               templateUrl: "quizlet.html",
               controller: "HelloWorldController"
-
+            })
+            .when("/changecards", {
+              templateUrl: "chandecards.html",
+              controller: "FunkyController",
+              resolve: {
+                  cards: function(Contacts) {
+                      return Contacts.getContacts();
+                  }
+              }
             })
             .otherwise({
                 redirectTo: "/"

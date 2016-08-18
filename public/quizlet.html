@@ -1,5 +1,5 @@
 
-    <div id="quizItself" ng-show="quizMode">
+    <div id="quizItself">
       <h2>Guess the image</h2>
       <p class="text-center"><img ng-src="asian/{{current.image}}" class="img-rounded mainQuiz"></p><br>
       <br>
@@ -87,7 +87,7 @@
         <br>
       </form>
     </div>
-    <div id="changeCards" ng-hide="quizMode">
+    <div id="changeCards>
       <div id="cards" style="overflow:scroll; border:3px black solid; height:80vh">
 
         <div ng-repeat="piece in pieces" style="margin:5px; border:1px #aaa solid">
