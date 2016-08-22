@@ -32,7 +32,7 @@ angular.module("contactsApp", ['ngRoute'])
               controller: "HelloWorldController"
             })
             .when("/changecards", {
-              templateUrl: "chandecards.html",
+              templateUrl: "changecards.html",
               controller: "FunkyController",
               resolve: {
                   cards: function(Contacts) {
