@@ -10,7 +10,7 @@ angular.module("contactsApp", ['ngRoute'])
                     }
                 }
             })
-            .when("/test", {
+            .when("/quiz", {
                     templateUrl: "quizlet.html",
                     controller: "FunkyController",
                     resolve: {
@@ -27,7 +27,7 @@ angular.module("contactsApp", ['ngRoute'])
                 controller: "EditContactController",
                 templateUrl: "contact.html"
             })
-            .when("/quiz", {
+            .when("/quiz_other", {
               templateUrl: "quizlet.html",
               controller: "HelloWorldController"
             })
