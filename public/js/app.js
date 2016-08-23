@@ -34,6 +34,11 @@ angular.module("contactsApp", ['ngRoute'])
             .when("/changecards", {
               templateUrl: "changecards.html",
               controller: "ChangeCardsController"
+              resolve: {
+                  cards: function(Contacts) {
+                      return Contacts.getContacts();
+                  }
+              }
             })
             .otherwise({
                 redirectTo: "/"
@@ -162,9 +167,8 @@ angular.module("contactsApp", ['ngRoute'])
             });
         }
     })
-    .controller("ChangeCardsController", function($scope, $routeParams, Contacts) {
-      $scope.cards = Contacts.getContacts();
-      $scope.pieces = $scope.cards.data;
+    .controller("ChangeCardsController", function($scope, $routeParams, Contacts, cards) {
+      $scope.pieces = cards.data;
       $scope.juk = "booler"
 
       $scope.deleteContact = function(contactId) {
