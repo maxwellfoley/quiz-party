@@ -33,7 +33,7 @@ angular.module("contactsApp", ['ngRoute'])
             })
             .when("/changecards", {
               templateUrl: "changecards.html",
-              controller: "ChangeCardsController"
+              controller: "ChangeCardsController",
               resolve: {
                   cards: function(Contacts) {
                       return Contacts.getContacts();
