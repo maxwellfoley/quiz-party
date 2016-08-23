@@ -163,7 +163,7 @@ angular.module("contactsApp", ['ngRoute'])
         }
     })
     .controller("ChangeCardsController", function($scope, $routeParams, Contacts) {
-      $scope.cards = Contact.getContacts();
+      $scope.cards = Contacts.getContacts();
       $scope.pieces = cards.data;
 
       $scope.deleteContact = function(contactId) {
