@@ -167,14 +167,15 @@ angular.module("contactsApp", ['ngRoute'])
             });
         }
     })
-    .controller("ChangeCardsController", function($scope, $routeParams, Contacts, cards) {
+    .controller("ChangeCardsController", function(cards, $scope, $routeParams) {
       $scope.pieces = cards.data;
       $scope.juk = "booler"
 
+/*
       $scope.deleteContact = function(contactId) {
           Contacts.deleteContact(contactId);
       }
-
+*/
     })
     .controller("EditContactController", function($scope, $routeParams, Contacts) {
         Contacts.getContact($routeParams.contactId).then(function(doc) {
