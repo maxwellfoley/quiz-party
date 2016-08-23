@@ -83,10 +83,13 @@ angular.module("contactsApp", ['ngRoute'])
         }
         this.deleteContact = function(contactId) {
           console.log("beginning of delete contact");
+
             var url = "/contacts/" + contactId;
             return $http.delete(url).
                 then(function(response) {
-                    console.log("response" + response);
+
+
+                    console.log("response" + EntityUtils.toString(response.getEntity()));
                     return response;
                 }, function(response) {
                     alert("Error deleting this contact.");
