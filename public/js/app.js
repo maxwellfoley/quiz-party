@@ -165,6 +165,7 @@ angular.module("contactsApp", ['ngRoute'])
     .controller("ChangeCardsController", function($scope, $routeParams, Contacts) {
       $scope.cards = Contacts.getContacts();
       $scope.pieces = $scope.cards.data;
+      $scope.juk = "booler"
 
       $scope.deleteContact = function(contactId) {
           Contacts.deleteContact(contactId);
