@@ -2,7 +2,8 @@
   <!--<div id="cards" style="overflow:scroll; border:3px black solid; height:80vh">-->
 
     <div ng-repeat="piece in origPieces" style="margin:5px; border:1px #aaa solid">
-       {{piece._id}},{{piece.title}}, {{piece.artist}}, {{piece.material}}, {{piece.country}}, {{piece.period}}<br>
+      {{piece.title}}, {{piece.artist}}, {{piece.material}}, {{piece.country}}, {{piece.period}}<br>
+      <a href="#/"><button style="margin-top:20px" class="btn btn-default" ng-click="deleteContact(piece._id)">Delete</button></a>
 
   <!--  </div>-->
   </div>
