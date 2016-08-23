@@ -167,7 +167,7 @@ angular.module("contactsApp", ['ngRoute'])
             });
         }
     })
-    .controller("ChangeCardsController", function(cards, $scope, $routeParams) {
+    .controller("ChangeCardsController", function(cards, $scope, $routeParams, Contacts) {
       $scope.pieces = cards.data;
       $scope.juk = "booler"
 
