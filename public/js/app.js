@@ -170,7 +170,7 @@ angular.module("contactsApp", ['ngRoute'])
           Contacts.deleteContact(contactId);
       }
 
-    }
+    })
     .controller("EditContactController", function($scope, $routeParams, Contacts) {
         Contacts.getContact($routeParams.contactId).then(function(doc) {
             $scope.contact = doc.data;
