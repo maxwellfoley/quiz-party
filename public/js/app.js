@@ -41,7 +41,7 @@ angular.module("contactsApp", ['ngRoute'])
               }
             })
             .otherwise({
-                redirectTo: "/"
+                redirectTo: "/quiz"
             })
     })
     .service("Contacts", function($http) {
