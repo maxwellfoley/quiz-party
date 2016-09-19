@@ -207,6 +207,17 @@ angular.module("contactsApp", ['ngRoute'])
       {
         $scope.adding = true;
       }
+      $scope.addContactDone = function()
+      {
+
+        Contacts.createContact($scope.toAdd).then(function(doc) {
+            var contactUrl = "/contact/" + doc.data._id;
+            $location.path(contactUrl);
+        }, function(response) {
+            alert(response);
+        });
+
+      }
 
     })
     .controller("EditContactController", function($scope, $routeParams, Contacts) {
