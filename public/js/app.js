@@ -99,6 +99,10 @@ angular.module("contactsApp", ['ngRoute'])
 
             */
         }
+        this.barf = function()
+        {
+            console.log("why am i here");
+        }
     })
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
