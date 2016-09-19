@@ -190,9 +190,14 @@ angular.module("contactsApp", ['ngRoute'])
       }
 
       $scope.editContact = function(contactId) {
-        $scope.edited = contactId;
-        console.log("editing " + $scope.edited);
-        
+        if($scope.edited == contactId)
+        {
+          $scope.edited = -1;
+        }
+        else
+        {
+          $scope.edited = contactId;
+        }
 
       }
 
