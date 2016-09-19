@@ -180,7 +180,6 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         }
     })
     .controller("ChangeCardsController", function(cards, $scope, $routeParams, $route, Contacts) {
-      console.log("cards " + cards);
       $scope.pieces = cards.data;
       $scope.edited = -1;
 
