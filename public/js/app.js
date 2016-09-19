@@ -84,6 +84,7 @@ angular.module("contactsApp", ['ngRoute'])
         this.deleteContact = function(contactId) {
           console.log("beginning of delete contact");
 
+            /*
             var url = "/contacts/" + contactId;
             return $http.delete(url).
                 then(function(response) {
@@ -95,6 +96,8 @@ angular.module("contactsApp", ['ngRoute'])
                     alert("Error deleting this contact.");
                     console.log(response);
                 });
+
+            */
         }
     })
     .controller("ListController", function(contacts, $scope) {
