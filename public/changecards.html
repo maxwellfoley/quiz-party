@@ -27,7 +27,6 @@
   <!--  </div>-->
     </div>
 
-    <button style="margin-top:20px" class="btn btn-default" ng-click="addContact()">Add</button>
     <div ng-show="adding">
       <b>Add new contact</b>:
       <form novalidate class="simple-form">
@@ -38,6 +37,10 @@
         <b>Period</b>: <input type="text" ng-model="piece.period"><br>
       </form>
     </div>
+
+    <button ng-hide="adding" style="margin-top:20px" class="btn btn-default" ng-click="addContact()">Add</button>
+    <button ng-show="adding" style="margin-top:20px" class="btn btn-default" ng-click="addContactDone()">Done</button>
+
 
 
   <br>
