@@ -1,14 +1,12 @@
 <div id="changeCards">
   <!--<div id="cards" style="overflow:scroll; border:3px black solid; height:80vh">-->
 
-    sjwwge {{juk}}
-    {{pieces[0].title}}
     <div ng-repeat="piece in pieces" style="margin:5px; border:1px #aaa solid">
       {{piece.title}}, {{piece.artist}}, {{piece.material}}, {{piece.country}}, {{piece.period}}<br>
       <a href="#/changecards"><button style="margin-top:20px" class="btn btn-default" ng-click="deleteContact(piece._id)">Delete</button></a>
       <!-- ng-click="deleteContact(piece._id)"-->
   <!--  </div>-->
-  </div>
+    </div>
   <br>
   <br>
   <a ng-href="#/quiz">Get quizzed</a>
