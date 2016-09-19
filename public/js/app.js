@@ -213,6 +213,7 @@ angular.module("contactsApp", ['ngRoute'])
         Contacts.createContact($scope.toAdd).then(function(doc) {
             //var contactUrl = "/contact/" + doc.data._id;
           //  $location.path(contactUrl);
+          $route.reload();
         }, function(response) {
             alert(response);
         });
