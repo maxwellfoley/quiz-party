@@ -3,7 +3,7 @@
 
     <div ng-repeat="piece in pieces" style="margin:5px; border:1px #aaa solid">
       <div ng-hide="$index == edited">
-        <b>Title</b>:{{piece.title}}<br>
+        <b>Title</b>: {{piece.title}}<br>
         <b>Artist</b>: {{piece.artist}}<br>
         <b>Material</b>: {{piece.material}}<br>
         <b>Country</b>: {{piece.country}}<br>
@@ -11,11 +11,11 @@
       </div>
       <div ng-show="$index == edited">
         <form novalidate class="simple-form">
-          <b>Title</b>:<input type="text" ng-model="piece.title"><br>
-          <b>Artist</b>:<input type="text" ng-model="piece.artist"><br>
-          <b>Material</b>:<input type="text" ng-model="piece.material"><br>
-          <b>Country</b>:<input type="text" ng-model="piece.country"><br>
-          <b>Period</b>:<input type="text" ng-model="piece.period"><br>
+          <b>Title</b>: <input type="text" ng-model="piece.title"><br>
+          <b>Artist</b>: <input type="text" ng-model="piece.artist"><br>
+          <b>Material</b>: <input type="text" ng-model="piece.material"><br>
+          <b>Country</b>: <input type="text" ng-model="piece.country"><br>
+          <b>Period</b>: <input type="text" ng-model="piece.period"><br>
         </form>
       </div>
       <button style="margin-top:20px" class="btn btn-default" ng-click="editContact($index)">
