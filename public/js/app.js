@@ -189,7 +189,8 @@ angular.module("contactsApp", ['ngRoute'])
           $route.reload();
       }
 
-      $scope.editContact = function(contactId) {
+      $scope.editContact = function(contactId)
+      {
         if($scope.edited == contactId)
         {
           console.log("the thing to be edited " + $scope.pieces[contactId]._id);
@@ -200,7 +201,11 @@ angular.module("contactsApp", ['ngRoute'])
         {
           $scope.edited = contactId;
         }
+      }
 
+      $scope.addContact = function()
+      {
+        $scope.adding = true;
       }
 
     })

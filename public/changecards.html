@@ -26,6 +26,20 @@
       <!-- ng-click="deleteContact(piece._id)"-->
   <!--  </div>-->
     </div>
+
+    <button style="margin-top:20px" class="btn btn-default" ng-click="addContact()">Add</button>
+    <div ng-show="adding">
+      <b>Add new contact</b>:
+      <form novalidate class="simple-form">
+        <b>Title</b>: <input type="text" ng-model="piece.title"><br>
+        <b>Artist</b>: <input type="text" ng-model="piece.artist"><br>
+        <b>Material</b>: <input type="text" ng-model="piece.material"><br>
+        <b>Country</b>: <input type="text" ng-model="piece.country"><br>
+        <b>Period</b>: <input type="text" ng-model="piece.period"><br>
+      </form>
+    </div>
+
+
   <br>
   <br>
   <a ng-href="#/quiz">Get quizzed</a>
