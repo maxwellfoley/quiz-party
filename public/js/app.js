@@ -191,7 +191,9 @@ angular.module("contactsApp", ['ngRoute'])
           $scope.pieces = $scope.stuff.data;
           console.log($scope.pieces);
           */
-          $scope.$apply();
+          $route.reload();
+
+//          $scope.$apply();
 
       }
 
