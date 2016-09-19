@@ -193,7 +193,7 @@ angular.module("contactsApp", ['ngRoute'])
         if($scope.edited == contactId)
         {
           console.log("the thing to be edited " + $scope.pieces[contactId]._id);
-          Contacts.editContact($scope.pieces[contactId]._id);
+          Contacts.editContact($scope.pieces[contactId]);
           $scope.edited = -1;
         }
         else
