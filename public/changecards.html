@@ -2,11 +2,17 @@
   <!--<div id="cards" style="overflow:scroll; border:3px black solid; height:80vh">-->
 
     <div ng-repeat="piece in pieces" style="margin:5px; border:1px #aaa solid">
-      <b>Title</b>:{{piece.title}}<br>
-      <b>Artist</b>: {{piece.artist}}<br>
-      <b>Material</b>: {{piece.material}}<br>
-      <b>Country</b>: {{piece.country}}<br>
-      <b>Period</b>: {{piece.period}}<br>
+      <div ng-hide="$index == edited">
+        <b>Title</b>:{{piece.title}}<br>
+        <b>Artist</b>: {{piece.artist}}<br>
+        <b>Material</b>: {{piece.material}}<br>
+        <b>Country</b>: {{piece.country}}<br>
+        <b>Period</b>: {{piece.period}}<br>
+      </div>
+      <div ng-show="$index == edited">
+        bool
+
+      </div>
 
       {{$index}}
 
