@@ -183,11 +183,17 @@ angular.module("contactsApp", ['ngRoute'])
       $scope.pieces = cards.data;
       $scope.juk = "booler"
 
-/*
+      $scope.barf = function()
+      {
+          console.log("barf");
+
+      }
+
       $scope.deleteContact = function(contactId) {
+          console.log("delete contact function");
           Contacts.deleteContact(contactId);
       }
-*/
+
     })
     .controller("EditContactController", function($scope, $routeParams, Contacts) {
         Contacts.getContact($routeParams.contactId).then(function(doc) {
