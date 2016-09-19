@@ -186,7 +186,7 @@ angular.module("contactsApp", ['ngRoute'])
           Contacts.deleteContact(contactId);
           console.log("back here");
           $scope.stuff = Contacts.getContacts();
-          $scope.pieces = stuff.data;
+          $scope.pieces = $scope.stuff.data;
           console.log($scope.pieces);
 
       }
