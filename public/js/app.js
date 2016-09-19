@@ -1,5 +1,5 @@
-angular.module("contactsApp", ['ngRoute'])
-    .config(function($routeProvider) {
+angular.module("contactsApp", ['ngRoute','angular-filepicker'])
+    .config(function($routeProvider, filepickerProvider) {
         $routeProvider
             .when("/", {
                 templateUrl: "list.html",
@@ -43,6 +43,8 @@ angular.module("contactsApp", ['ngRoute'])
             .otherwise({
                 redirectTo: "/quiz"
             })
+
+            filepickerProvider.setKey("AWX9VlO2hTR2EWljLfbPoz");
     })
     .service("Contacts", function($http) {
         this.getContacts = function() {
