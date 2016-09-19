@@ -7,6 +7,10 @@
       <b>Material</b>: {{piece.material}}<br>
       <b>Country</b>: {{piece.country}}<br>
       <b>Period</b>: {{piece.period}}<br>
+
+      {{piece._id}}
+
+      <button style="margin-top:20px" class="btn btn-default" ng-click="editContact(piece._id)">Edit</button>
       <a href="#/changecards"><button style="margin-top:20px" class="btn btn-default" ng-click="deleteContact(piece._id)">Delete</button></a>
       <!-- ng-click="deleteContact(piece._id)"-->
   <!--  </div>-->

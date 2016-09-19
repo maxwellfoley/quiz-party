@@ -180,20 +180,17 @@ angular.module("contactsApp", ['ngRoute'])
     .controller("ChangeCardsController", function(cards, $scope, $routeParams, $route, Contacts) {
       console.log("cards " + cards);
       $scope.pieces = cards.data;
+      $scope.edited = -1;
 
       $scope.deleteContact = function(contactId) {
           console.log("delete contact function");
           Contacts.deleteContact(contactId);
           console.log("back here");
-          /*$scope.stuff = Contacts.getContacts();
-          console.log($scope.stuff);
-          console.log("w the scope thing " + $scope.stuff.$$scope);
-          $scope.pieces = $scope.stuff.data;
-          console.log($scope.pieces);
-          */
           $route.reload();
+      }
 
-//          $scope.$apply();
+      $scope.editContact = function(contactId) {
+        $scope.edited = contactId;
 
       }
 
