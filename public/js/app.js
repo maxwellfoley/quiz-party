@@ -179,17 +179,15 @@ angular.module("contactsApp", ['ngRoute'])
     })
     .controller("ChangeCardsController", function(cards, $scope, $routeParams, Contacts) {
       $scope.pieces = cards.data;
-      $scope.juk = "booler"
-
-      $scope.barf = function()
-      {
-          console.log("barf");
-
-      }
+      $scope.juk = "booler";
 
       $scope.deleteContact = function(contactId) {
           console.log("delete contact function");
           Contacts.deleteContact(contactId);
+          console.log("back here");
+          var cards2 = contacts.getContacts();
+          $scope.pieces = cards2.data;
+
       }
 
     })
