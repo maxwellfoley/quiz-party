@@ -18,9 +18,6 @@
           <b>Period</b>:<input type="text" ng-model="piece.period"><br>
         </form>
       </div>
-
-      {{$index}}
-
       <button style="margin-top:20px" class="btn btn-default" ng-click="editContact($index)">
         <span ng-hide="$index == edited">Edit</span>
         <span ng-show="$index == edited">Done</span>
