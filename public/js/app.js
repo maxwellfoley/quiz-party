@@ -185,7 +185,7 @@ angular.module("contactsApp", ['ngRoute'])
           console.log("delete contact function");
           Contacts.deleteContact(contactId);
           console.log("back here");
-
+          console.log(Contacts.getContacts());
       }
 
     })
