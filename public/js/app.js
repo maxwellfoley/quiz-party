@@ -220,14 +220,15 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         });
 
       }
-      $scope.onSuccess = function(whatever)
+      $scope.imageToEdit = function(whatever)
       {
-        $scope.files = [];
-        console.log(whatever.url);
-        console.log("on success, we are on success. successful");
-        $scope.files.push(whatever);
         $scope.pieces[$scope.edited].image = whatever.url;
+        $scope.$apply();
 
+      }
+      $scope.imageToAdd = function(whatever)
+      {
+        $scope.toAdd.image = whatever.url;
         $scope.$apply();
 
       }
