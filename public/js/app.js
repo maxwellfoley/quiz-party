@@ -225,7 +225,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         $scope.files = [];
         console.log(whatever);
         console.log("on success, we are on success. successful");
-        $scope.files.push(whatever);  
+        $scope.files.push(whatever);
         $scope.$apply();
 
       }
