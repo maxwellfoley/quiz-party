@@ -241,9 +241,9 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         $scope.$apply();
 
       }
-      $scope.testNewCollection = function()
+      $scope.testNewCollection = function(name)
       {
-        Contacts.addCollection("testin_dat");
+        Contacts.addCollection(name);
 
       }
 
