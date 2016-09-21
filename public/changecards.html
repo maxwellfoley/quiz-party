@@ -56,3 +56,19 @@
   </div>
 
 </div>
+
+
+<div class='row'>
+    <div class='col-sm-12'>
+        <h3>Uploaded images</h3>
+        <div class='row' ng-repeat='file in files'>
+            <img ng-src='{{file.url}}' />
+        </div>
+    </div>
+</div>
+<div class='row'>
+    <div class='col-sm-12'>
+        <h3>Raw data</h3>
+        <pre>{{files | json}}</pre>
+    </div>
+</div>
