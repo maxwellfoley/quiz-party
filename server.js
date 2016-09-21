@@ -89,6 +89,16 @@ app.get("/contacts/:id", function(req, res) {
   });
 });
 
+app.put("/sets/:id", function(req, res) {
+  db.createCollection(req.params.id);
+  /*
+  if (err)
+  {
+    handleError(res, err.message, "Could not create new collection");
+
+  }*/
+});
+
 app.put("/contacts/:id", function(req, res) {
   var updateDoc = req.body;
   delete updateDoc._id;

@@ -99,6 +99,15 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
 
         }
+        this.addCollection = function(collectionName) {
+          console.log("beginning of add collection");
+          var url = "/sets/" + collectionName;
+          return $http.put(url).
+            then(function(response) {
+              console.log(response);
+            });
+
+        }
         this.barf = function()
         {
             console.log("why am i here");
@@ -230,6 +239,11 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
       {
         $scope.toAdd.image = whatever.url;
         $scope.$apply();
+
+      }
+      $scope.testNewCollection = function()
+      {
+        Contacts.addCollection("testin_dat");
 
       }
 
