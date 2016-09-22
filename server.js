@@ -90,17 +90,15 @@ app.get("/contacts/:id", function(req, res) {
 });
 
 app.get("/sets/", function(req,res) {
-  /*
+
   db.listCollections().toArray(function(err, collections) {
         if (err) {
-          //log.error(err);
+          handleError(res, err.message, "Failed to get list of collections.");
         } else {
-          //log.info(collections);
+          res.send(collections);
         }
       });
 
-      */
-      res.send("dooko pooko rooko hooko");
   //TODO: figure out whats up with this
 });
 
