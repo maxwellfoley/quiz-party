@@ -38,6 +38,9 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                   cards: function(Contacts) {
                       return Contacts.getContacts();
                   }
+                  cards: function(Contacts) {
+                      return Contacts.getCollections();
+                  }
               }
             })
             .otherwise({
@@ -197,11 +200,11 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
             });
         }
     })
-    .controller("ChangeCardsController", function(cards, $scope, $routeParams, $route, Contacts) {
+    .controller("ChangeCardsController", function(cards, collections, $scope, $routeParams, $route, Contacts) {
       $scope.pieces = cards.data;
       $scope.edited = -1;
 
-      $scope.collectionNamesRaw = Contacts.getCollections();
+      $scope.collectionNamesRaw = collections;//Contacts.getCollections();
       console.log($scope.collectionsNamesRaw);
       $scope.collectionsNames = [];
       for(var i = 0; i < $scope.collectionsNamesRaw.data.length; i++)
