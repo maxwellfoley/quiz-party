@@ -90,7 +90,7 @@ app.get("/contacts/:id", function(req, res) {
 });
 
 app.get("/sets/", function(req,res) {
-  db.collectionNames(function(err, collections) {
+  db.listCollections().toArray(function(err, collections) {
         if (err) {
           log.error(err);
         } else {
