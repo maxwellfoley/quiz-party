@@ -90,11 +90,11 @@ app.get("/contacts/:id", function(req, res) {
 });
 
 app.get("/sets/", function(req,res) {
-  db.listCogegllections().toArray(function(err, collections) {
+  db.listCollections().toArray(function(err, collections) {
         if (err) {
-          log.error(err);
+          //log.error(err);
         } else {
-          log.info(collections);
+          //log.info(collections);
         }
       });
   //TODO: figure out whats up with this
