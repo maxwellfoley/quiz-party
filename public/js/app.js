@@ -100,8 +100,10 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
         }
         this.getCollections = function(){
+          console.log("were in the beginning of get collections");
           return $http.get("/sets/").
             then(function(response) {
+              console.log("before response");
               console.log(response);
             });
         }
@@ -199,6 +201,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
       $scope.edited = -1;
 
       $scope.collectionNames = Contacts.getCollections();
+
       $scope.deleteContact = function(contactId) {
           console.log("delete contact function");
           Contacts.deleteContact(contactId);
