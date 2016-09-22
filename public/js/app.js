@@ -101,11 +101,11 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         }
         this.getCollections = function(){
           console.log("were in the beginning of get collections");
-          /*return $http.get("/sets/").
+          return $http.get("/sets/").
             then(function(response) {
               console.log("before response");
               console.log(response);
-            });*/
+            });
         }
         this.addCollection = function(collectionName) {
           console.log("beginning of add collection");
