@@ -201,9 +201,9 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
       $scope.collectionNamesRaw = Contacts.getCollections();
       $scope.collectionsNames = [];
-      for(var i = 0; i < collectionsNamesRaw.data.length; i++)
+      for(var i = 0; i < $scope.collectionsNamesRaw.data.length; i++)
       {
-        collectionsNames[i] = collectionsNamesRaw.data[i].name;
+        collectionsNames[i] = $scope.collectionsNamesRaw.data[i].name;
 
       }
       console.log(collectionsNames);
