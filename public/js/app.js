@@ -101,7 +101,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         }
         this.getCollections = function(){
           return $http.get("/sets/").
-            then(function(response)) {
+            then(function(response) {
               console.log(response);
             });
         }
