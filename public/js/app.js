@@ -109,6 +109,8 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
               console.log('end of get collections');
               console.log(response);
               return response;
+            }, function(response) {
+                alert("Error finding contacts.");
             });
         }
         this.addCollection = function(collectionName) {
