@@ -90,13 +90,13 @@ app.get("/contacts/:id", function(req, res) {
 });
 
 app.get("/sets/", function(req,res) {
-  db.getCollectionNames(function(err, docs) {
-    if (err) {
-      handleError(res, err.message, "Failed to get contacts.");
-    } else {
-      res.status(200).json(docs);
-    }
-  });
+  db.collectionNames(function(err, collections) {
+        if (err) {
+          log.error(err);
+        } else {
+          log.info(collections);
+        }
+      });
   //TODO: figure out whats up with this
 });
 
