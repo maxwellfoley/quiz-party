@@ -38,7 +38,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                   cards: function(Contacts) {
                       return Contacts.getContacts();
                   }
-                  cards: function(Contacts) {
+                  collections: function(Contacts) {
                       return Contacts.getCollections();
                   }
               }
