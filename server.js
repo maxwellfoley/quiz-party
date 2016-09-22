@@ -89,6 +89,11 @@ app.get("/contacts/:id", function(req, res) {
   });
 });
 
+app.get("/sets/:id", function(req,res) {
+  db.getCollectionNames();
+  //TODO: figure out whats up with this
+});
+
 app.put("/sets/:id", function(req, res) {
   db.createCollection(req.params.id);
   /*

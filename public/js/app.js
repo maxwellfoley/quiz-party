@@ -99,6 +99,12 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
 
         }
+        this.getCollections = function(){
+          return $http.get("/sets/").
+            then(function(response)) {
+              console.log(response);
+            });
+        }
         this.addCollection = function(collectionName) {
           console.log("beginning of add collection");
           var url = "/sets/" + collectionName;
