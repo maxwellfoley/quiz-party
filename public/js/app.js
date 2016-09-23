@@ -212,7 +212,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
       $scope.pieces = cards.data;
       $scope.edited = -1;
 
-      $scope.collectionNamesRaw = Contacts.getCollections();
+      $scope.collectionNamesRaw = collections;//Contacts.getCollections();
 
       /*
       console.log($scope.collectionsNamesRaw);
