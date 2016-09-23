@@ -91,7 +91,7 @@ app.get("/contacts/:id", function(req, res) {
 
 app.get("/sets/", function(req,res) {
 
-  db.listCollections().toArray().then(function(err, collections) {
+  db.listCollections().toArray(function(err, collections) {
         if (err) {
           handleError(res, err.message, "Failed to get list of collections.");
         } else {
