@@ -41,7 +41,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                   collections: function(Contacts) {
 
                       var col = Contacts.getCollections();
-                      console.log("collections thing " + col);
+                      console.log("the collections are " + col);
                       return col;
                   }
               }
