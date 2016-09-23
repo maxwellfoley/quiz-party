@@ -95,7 +95,7 @@ app.get("/sets/", function(req,res) {
         if (err) {
           handleError(res, err.message, "Failed to get list of collections.");
         } else {
-          res.send(collections);
+          res.status(200).json(collections);
         }
       });
 
