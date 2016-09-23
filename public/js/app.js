@@ -39,6 +39,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
                       var crds = Contacts.getContacts();
                       console.log("we got cards " + crds);
+                      console.log(crds);
                       return crds;
                   },
                   collections: function(Contacts) {
