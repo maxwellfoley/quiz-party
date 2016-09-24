@@ -221,8 +221,6 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
     })
     .controller("SetsController", function(collections, $scope) {
 
-        console.log("lugugugggg");
-        $scope.dupp = "lupp";
         $scope.collectionNamesRaw = collections;
 
         console.log("collections names raw " + collections);
@@ -238,11 +236,17 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
     })
     .controller("ChangeCardsController", function(cards, collections, $scope, $routeParams, $route, Contacts) {
-      console.log("beginning of change cards controller");
+      console.log("beginning of change cards controller " + $routeParams);
 
+/*
+      Contacts.getContacts($routeParams.contactId).then(function(doc) {
+          $scope.pieces = doc.data;
+      }, function(response) {
+          alert(response);
+      });
+*/
 
-
-      $scope.pieces = cards.data;
+     $scope.pieces = cards.data;
       $scope.edited = -1;
 
 
