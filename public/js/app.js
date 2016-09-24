@@ -225,7 +225,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
       $scope.collectionNamesRaw = collections;//Contacts.getCollections();
       console.log("collections names raw " + collections);
-      /*
+      
       console.log($scope.collectionsNamesRaw);
       $scope.collectionsNames = [];
       for(var i = 0; i < $scope.collectionsNamesRaw.data.length; i++)
@@ -234,7 +234,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
       }
       console.log(  $scope.collectionsNames);
-*/
+
 
 
       $scope.deleteContact = function(contactId) {
