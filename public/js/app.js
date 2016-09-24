@@ -6,7 +6,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                     controller: "FunkyController",
                     resolve: {
                         cards: function(Contacts) {
-                            return Contacts.getContacts();
+                            return Contacts.getContacts("cards");
                         }
                     }
                 })
@@ -28,7 +28,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
               resolve: {
                   cards: function(Contacts) {
 
-                      var crds = Contacts.getContacts();
+                      var crds = Contacts.getContacts("cards");
                       console.log("we got cards " + crds);
                       console.log(crds);
                       return crds;
@@ -60,9 +60,9 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
             filepickerProvider.setKey("AWX9VlO2hTR2EWljLfbPoz");
     })
     .service("Contacts", function($http) {
-        this.getContacts = function() {
+        this.getContacts = function(setName) {
             console.log("getting cards now");
-            return $http.get("/collection/cards").
+            return $http.get("/collection/"+setName).
                 then(function(response) {
                   console.log("found our cards");
                     return response;
