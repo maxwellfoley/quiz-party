@@ -22,7 +22,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
               templateUrl: "quizlet.html",
               controller: "HelloWorldController"
             })
-            .when("/changecards", {
+            .when("/changecards/:set", {
               templateUrl: "changecards.html",
               controller: "ChangeCardsController",
               resolve: {
