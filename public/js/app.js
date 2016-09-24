@@ -236,7 +236,8 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
     })
     .controller("ChangeCardsController", function(cards, collections, $scope, $routeParams, $route, Contacts) {
-      console.log("beginning of change cards controller " + $routeParams);
+      console.log("change cards controller");
+      console.log( $routeParams);
 
 /*
       Contacts.getContacts($routeParams.contactId).then(function(doc) {
