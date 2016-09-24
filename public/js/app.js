@@ -58,12 +58,16 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
     })
     .service("Contacts", function($http) {
         this.getContacts = function() {
+            console.log("getting cards now");
             return $http.get("/contacts").
                 then(function(response) {
+                  console.log("found our response");
                     return response;
                 }, function(response) {
                     alert("Error finding contacts.");
                 });
+
+            console.log("end of getting cards function");
         }
         this.createContact = function(contact) {
             return $http.post("/contacts", contact).
