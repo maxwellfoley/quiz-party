@@ -1,15 +1,6 @@
 angular.module("contactsApp", ['ngRoute','angular-filepicker'])
     .config(function($routeProvider, filepickerProvider) {
         $routeProvider
-            .when("/", {
-                templateUrl: "list.html",
-                controller: "ListController",
-                resolve: {
-                    contacts: function(Contacts) {
-                        return Contacts.getContacts();
-                    }
-                }
-            })
             .when("/quiz", {
                     templateUrl: "quizlet.html",
                     controller: "FunkyController",
