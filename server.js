@@ -54,7 +54,7 @@ app.get("/collection/:id", function(req, res) {
   });
 });
 
-app.post("/contacts", function(req, res) {
+app.post("/contacts/:set", function(req, res) {
   var newContact = req.body;
   newContact.createDate = new Date();
 
@@ -64,7 +64,7 @@ app.post("/contacts", function(req, res) {
   }
 */
 
-  db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
+  db.collection(req.params.set).insertOne(newContact, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to create new contact.");
     } else {
@@ -79,8 +79,8 @@ app.post("/contacts", function(req, res) {
  *    DELETE: deletes contact by id
  */
 
-app.get("/contacts/:id", function(req, res) {
-  db.collection(CONTACTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+app.get("/contacts/:set/:id", function(req, res) {
+  db.collection(req.params.set).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to get contact");
     } else {
@@ -111,11 +111,11 @@ app.put("/sets/:id", function(req, res) {
   }*/
 });
 
-app.put("/contacts/:id", function(req, res) {
+app.put("/contacts/:set/:id", function(req, res) {
   var updateDoc = req.body;
   delete updateDoc._id;
 
-  db.collection(CONTACTS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+  db.collection(req.params.set).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to update contact");
     } else {
@@ -124,8 +124,8 @@ app.put("/contacts/:id", function(req, res) {
   });
 });
 
-app.delete("/contacts/:id", function(req, res) {
-  db.collection(CONTACTS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+app.delete("/contacts/:set/:id", function(req, res) {
+  db.collection(req.params.set).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
     if (err) {
       console.log("error in deletion");
       handleError(res, err.message, "Failed to delete contact");
