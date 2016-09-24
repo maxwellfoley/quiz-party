@@ -61,7 +61,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
             console.log("getting cards now");
             return $http.get("/contacts").
                 then(function(response) {
-                  console.log("found our response");
+                  console.log("found our cards");
                     return response;
                 }, function(response) {
                     alert("Error finding contacts.");
