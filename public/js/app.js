@@ -267,7 +267,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
 
 
-      $scope.deleteContact = function($scope.set,contactId) {
+      $scope.deleteContact = function( contactId) {
           console.log("delete contact function");
           Contacts.deleteContact($scope.set,contactId);
           console.log("back here");
