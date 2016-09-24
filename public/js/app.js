@@ -50,6 +50,18 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                   }
               }
             })
+            .when("/sets", {
+              templateUrl: "sets.html",
+              controller: "SetsController",
+              resolve: {
+                collections: function(Contacts) {
+
+                    var col = Contacts.getCollections();
+                    console.log("the collections are " + col);
+                    return col;
+                }
+              }
+            })
             .otherwise({
                 redirectTo: "/quiz"
             })
@@ -215,6 +227,10 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                 alert(response);
             });
         }
+    })
+    .controller("SetsController", function(collections, $scope) {
+        $scope.dupp = "lupp";
+
     })
     .controller("ChangeCardsController", function(cards, collections, $scope, $routeParams, $route, Contacts) {
       console.log("beginning of change cards controller");
