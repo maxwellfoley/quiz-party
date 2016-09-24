@@ -62,7 +62,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
     .service("Contacts", function($http) {
         this.getContacts = function() {
             console.log("getting cards now");
-            return $http.get("/contacts").
+            return $http.get("/collection/cards").
                 then(function(response) {
                   console.log("found our cards");
                     return response;
@@ -239,6 +239,8 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
     })
     .controller("ChangeCardsController", function(cards, collections, $scope, $routeParams, $route, Contacts) {
       console.log("beginning of change cards controller");
+
+
 
       $scope.pieces = cards.data;
       $scope.edited = -1;
