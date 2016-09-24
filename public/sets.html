@@ -1,5 +1,5 @@
 
 <div ng-repeat="name in collectionNames">
-  <span ng-href="#/changecards/" ng-hide="name=='system.indexes'">{{name}}<br><br></span>
+  <a ng-href="#/changecards/{{name}}"> <span ng-hide="name=='system.indexes'">{{name}}<br><br></span></a>
 
 </div>
