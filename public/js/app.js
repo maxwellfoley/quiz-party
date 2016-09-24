@@ -225,15 +225,15 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
       $scope.collectionNamesRaw = collections;//Contacts.getCollections();
       console.log("collections names raw " + collections);
-      
-      console.log($scope.collectionsNamesRaw);
-      $scope.collectionsNames = [];
-      for(var i = 0; i < $scope.collectionsNamesRaw.data.length; i++)
+
+      console.log($scope.collectionNamesRaw);
+      $scope.collectionNames = [];
+      for(var i = 0; i < $scope.collectionNamesRaw.data.length; i++)
       {
-        $scope.collectionsNames[i] = $scope.collectionsNamesRaw.data[i].name;
+        $scope.collectionNames[i] = $scope.collectionNamesRaw.data[i].name;
 
       }
-      console.log(  $scope.collectionsNames);
+      console.log(  $scope.collectionNames);
 
 
 
