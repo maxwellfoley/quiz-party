@@ -229,6 +229,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         }
     })
     .controller("SetsController", function(collections, $scope) {
+        console.log("lugugugggg");
         $scope.dupp = "lupp";
 
     })
