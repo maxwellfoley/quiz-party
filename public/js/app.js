@@ -239,15 +239,15 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
       console.log("change cards controller");
       console.log( $routeParams.set);
 
-/*
-      Contacts.getContacts($routeParams.contactId).then(function(doc) {
+
+      Contacts.getContacts($routeParams.set).then(function(doc) {
           $scope.pieces = doc.data;
       }, function(response) {
           alert(response);
       });
-*/
 
-     $scope.pieces = cards.data;
+
+//     $scope.pieces = cards.data;
       $scope.edited = -1;
 
 
