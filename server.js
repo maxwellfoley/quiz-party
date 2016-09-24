@@ -99,7 +99,6 @@ app.get("/sets/", function(req,res) {
         }
       });
 
-  //TODO: figure out whats up with this
 });
 
 app.put("/sets/:id", function(req, res) {
