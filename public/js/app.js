@@ -154,19 +154,21 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         Contacts.getContacts($routeParams.set).then(function(doc) {
           console.log("we here boy");
             $scope.pieces = doc.data;
+            
+            $scope.origPieces = $scope.pieces;
+
+            var a = Math.floor( Math.random()* $scope.pieces.length);
+
+            $scope.quizMode = true;
+
+            $scope.originalLength = $scope.pieces.length;
+            $scope.current = $scope.pieces[a];
+            $scope.currentIndex= a;
+
         }, function(response) {
             alert(response);
         });
 
-        $scope.origPieces = $scope.pieces;
-
-        var a = Math.floor( Math.random()* $scope.pieces.length);
-
-        $scope.quizMode = true;
-
-        $scope.originalLength = $scope.pieces.length;
-        $scope.current = $scope.pieces[a];
-        $scope.currentIndex= a;
 
         $scope.next = function(){
             var a = Math.floor( Math.random()* $scope.pieces.length);
