@@ -54,7 +54,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
               }
             })
             .otherwise({
-                redirectTo: "/quiz"
+                redirectTo: "/sets"
             })
 
             filepickerProvider.setKey("AWX9VlO2hTR2EWljLfbPoz");
