@@ -245,6 +245,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
         $scope.newCollection = function(name)
         {
+          console.log("bginning new collection");
           Contacts.addCollection(name);
 
         }

@@ -102,7 +102,14 @@ app.get("/sets/", function(req,res) {
 });
 
 app.put("/sets/:id", function(req, res) {
-  db.createCollection(req.params.id);
+  db.createCollection(req.params.id, function(err,result) {
+    if (err) {
+      handleError(res, err.message, "Failed to place collection");
+    } else {
+      res.status(204).end();
+    }
+
+  });
   /*
   if (err)
   {
