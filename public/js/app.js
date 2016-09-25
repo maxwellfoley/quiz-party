@@ -154,7 +154,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         Contacts.getContacts($routeParams.set).then(function(doc) {
           console.log("we here boy");
             $scope.pieces = doc.data;
-            
+
             $scope.origPieces = $scope.pieces;
 
             var a = Math.floor( Math.random()* $scope.pieces.length);
@@ -243,6 +243,12 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         }
         console.log(  $scope.collectionNames);
 
+        $scope.newCollection = function(name)
+        {
+          Contacts.addCollection(name);
+
+        }
+
     })
     .controller("ChangeCardsController", function(cards, collections, $scope, $routeParams, $route, Contacts) {
       console.log("change cards controller");
@@ -325,11 +331,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         $scope.$apply();
 
       }
-      $scope.testNewCollection = function(name)
-      {
-        Contacts.addCollection(name);
 
-      }
 
     })
     .controller("EditContactController", function($scope, $routeParams, Contacts) {
