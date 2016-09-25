@@ -228,7 +228,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
             });
         }
     })
-    .controller("SetsController", function(collections, $scope) {
+    .controller("SetsController", function(collections, $scope, Contacts) {
 
         $scope.collectionNamesRaw = collections;
 
