@@ -1,7 +1,7 @@
 angular.module("contactsApp", ['ngRoute','angular-filepicker'])
     .config(function($routeProvider, filepickerProvider) {
         $routeProvider
-            .when("/quiz", {
+            .when("/quiz/:set", {
                     templateUrl: "quizlet.html",
                     controller: "FunkyController",
                     resolve: {
@@ -147,10 +147,17 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
     })
-    .controller("FunkyController", function(cards, $scope) {
+    .controller("FunkyController", function(cards, $scope, $routeParams) {
 
+        $scope.set = $routeParams.set;
 
-        $scope.pieces = cards.data;
+        Contacts.getContacts($routeParams.set).then(function(doc) {
+          console.log("we here boy");
+            $scope.pieces = doc.data;
+        }, function(response) {
+            alert(response);
+        });
+
         $scope.origPieces = $scope.pieces;
 
         var a = Math.floor( Math.random()* $scope.pieces.length);
