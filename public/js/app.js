@@ -147,7 +147,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
     .controller("ListController", function(contacts, $scope) {
         $scope.contacts = contacts.data;
     })
-    .controller("FunkyController", function(cards, $scope, $routeParams) {
+    .controller("FunkyController", function(cards, $scope, $routeParams, Contacts) {
 
         $scope.set = $routeParams.set;
 
