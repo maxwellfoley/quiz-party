@@ -3,7 +3,7 @@
 
     <div class="col-md-6 well" ng-repeat="piece in pieces">
       <div class="row" style="min-height: 200px;">
-        <div class="col-md-3" ng-hide="$index == edited">
+        <div class="col-md-6" ng-hide="$index == edited">
           <b>Title</b>: {{piece.title}}<br>
           <b>Artist</b>: {{piece.artist}}<br>
           <b>Material</b>: {{piece.material}}<br>
@@ -21,7 +21,7 @@
           <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToEdit(event.fpfile)"  />
 
         </div>
-        <div class="col-md-3" style="min-height: 200px;">
+        <div class="col-md-6" style="min-height: 200px;">
           <img class="img-responsive" ng-src="{{piece.image}}" style="min-height: 200px;">
         </div>
       </div>
