@@ -4,11 +4,28 @@
     <div class="col-md-6 well" ng-repeat="piece in pieces">
       <div class="row">
         <div class="col-md-6" ng-hide="$index == edited">
-          <b>Title</b>: {{piece.title}}<br>
-          <b>Artist</b>: {{piece.artist}}<br>
-          <b>Material</b>: {{piece.material}}<br>
-          <b>Country</b>: {{piece.country}}<br>
-          <b>Period</b>: {{piece.period}}<br>
+          <table class="table">
+          <tr>
+            <td><b>Title</b>:</td>
+            <td>{{piece.title}}</td>
+          </tr>
+          <tr>
+            <td><b>Artist</b>:</td>
+            <td>{{piece.artist}}</td>
+          </tr>
+          <tr>
+            <td><b>Material</b>:</td>
+            <td>{{piece.material}}</td>
+          </tr>
+          <tr>
+            <td><b>Country</b>:</td>
+            <td>{{piece.country}}</td>
+          </tr>
+          <tr>
+            <td><b>Period</b>:</td>
+            <td>{{piece.period}}</td>
+          </tr>
+          </table>
         </div>
         <div ng-show="$index == edited">
           <form novalidate class="simple-form">
