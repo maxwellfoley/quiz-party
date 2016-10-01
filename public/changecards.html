@@ -2,33 +2,37 @@
   <!--<div id="cards" style="overflow:scroll; border:3px black solid; height:80vh">-->
 
     <div class="col-md-6" ng-repeat="piece in pieces">
-      <div ng-hide="$index == edited">
-        <b>Title</b>: {{piece.title}}<br>
-        <b>Artist</b>: {{piece.artist}}<br>
-        <b>Material</b>: {{piece.material}}<br>
-        <b>Country</b>: {{piece.country}}<br>
-        <b>Period</b>: {{piece.period}}<br>
-      </div>
-      <div ng-show="$index == edited">
-        <form novalidate class="simple-form">
-          <b>Title</b>: <input type="text" ng-model="piece.title"><br>
-          <b>Artist</b>: <input type="text" ng-model="piece.artist"><br>
-          <b>Material</b>: <input type="text" ng-model="piece.material"><br>
-          <b>Country</b>: <input type="text" ng-model="piece.country"><br>
-          <b>Period</b>: <input type="text" ng-model="piece.period"><br>
-        </form>
-        <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToEdit(event.fpfile)"  />
+      <div class="row">
+        <div class="col-md-3" ng-hide="$index == edited">
+          <b>Title</b>: {{piece.title}}<br>
+          <b>Artist</b>: {{piece.artist}}<br>
+          <b>Material</b>: {{piece.material}}<br>
+          <b>Country</b>: {{piece.country}}<br>
+          <b>Period</b>: {{piece.period}}<br>
+        </div>
+        <div ng-show="$index == edited">
+          <form novalidate class="simple-form">
+            <b>Title</b>: <input type="text" ng-model="piece.title"><br>
+            <b>Artist</b>: <input type="text" ng-model="piece.artist"><br>
+            <b>Material</b>: <input type="text" ng-model="piece.material"><br>
+            <b>Country</b>: <input type="text" ng-model="piece.country"><br>
+            <b>Period</b>: <input type="text" ng-model="piece.period"><br>
+          </form>
+          <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToEdit(event.fpfile)"  />
 
+        </div>
+        <div class="col-md-3">
+          <img class="img-responsive" ng-src="{{piece.image}}">
+        </div>
       </div>
-      <img class="img-responsive" ng-src="{{piece.image}}">
 
-      <button style="margin-top:20px" class="btn btn-default" ng-click="editContact($index)">
-        <span ng-hide="$index == edited">Edit</span>
-        <span ng-show="$index == edited">Done</span>
-      </button>
-      <a href="#/changecards"><button style="margin-top:20px" class="btn btn-default" ng-click="deleteContact(piece._id)">Delete</button></a>
-      <!-- ng-click="deleteContact(piece._id)"-->
-  <!--  </div>-->
+        <button style="margin-top:20px" class="btn btn-default" ng-click="editContact($index)">
+          <span ng-hide="$index == edited">Edit</span>
+          <span ng-show="$index == edited">Done</span>
+        </button>
+        <a href="#/changecards"><button style="margin-top:20px" class="btn btn-default" ng-click="deleteContact(piece._id)">Delete</button></a>
+        <!-- ng-click="deleteContact(piece._id)"-->
+    <!--  </div>-->
     </div>
 
     <div ng-show="adding">
