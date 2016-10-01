@@ -52,28 +52,28 @@
     <!--  </div>-->
     </div>
 
-    <div ng-show="adding">
-      <b>Add new contact</b>:
-      <form novalidate class="simple-form">
-        <b>Title</b>: <input type="text" ng-model="toAdd.title"><br>
-        <b>Artist</b>: <input type="text" ng-model="toAdd.artist"><br>
-        <b>Material</b>: <input type="text" ng-model="toAdd.material"><br>
-        <b>Country</b>: <input type="text" ng-model="toAdd.country"><br>
-        <b>Period</b>: <input type="text" ng-model="toAdd.period"><br>
-      </form>
+    <div class="center-block">
+      <div ng-show="adding">
+        <b>Add new contact</b>:
+        <form novalidate class="simple-form">
+          <b>Title</b>: <input type="text" ng-model="toAdd.title"><br>
+          <b>Artist</b>: <input type="text" ng-model="toAdd.artist"><br>
+          <b>Material</b>: <input type="text" ng-model="toAdd.material"><br>
+          <b>Country</b>: <input type="text" ng-model="toAdd.country"><br>
+          <b>Period</b>: <input type="text" ng-model="toAdd.period"><br>
+        </form>
 
-      <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToAdd(event.fpfile)"  />
+        <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToAdd(event.fpfile)"  />
 
-    </div>
+      </div>
 
-    <button ng-hide="adding" style="margin-top:20px" class="btn btn-default" ng-click="addContact()">Add</button>
-    <button ng-show="adding" style="margin-top:20px" class="btn btn-default" ng-click="addContactDone()">Done</button>
+      <button ng-hide="adding" style="margin-top:20px" class="btn btn-default" ng-click="addContact()">Add</button>
+      <button ng-show="adding" style="margin-top:20px" class="btn btn-default" ng-click="addContactDone()">Done</button>
 
-
-
-  <br>
-  <br>
-  <a ng-href="#/quiz/{{set}}"><button type="button" class="btn btn-primary btn-lg active">Get quizzed</button></a>
+    <br>
+    <br>
+    <a ng-href="#/quiz/{{set}}"><button type="button" class="btn btn-primary btn-lg active">Get quizzed</button></a>
+</div>
 <br>
 <br>
 <br>
