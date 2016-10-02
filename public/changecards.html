@@ -102,7 +102,7 @@
           </form>
         </div>
         <div class="col-md-6">
-          <img ng-src="toAdd.image">
+          <img class="img-responsive" ng-src="{{toAdd.image}}">
           <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToAdd(event.fpfile)"  />
         </div>
         <div class="col-md-12 center-block text-center">
