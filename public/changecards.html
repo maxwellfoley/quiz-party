@@ -75,11 +75,28 @@
       <div ng-show="adding">
         <b>Add new contact</b>:
         <form novalidate class="simple-form">
-          <b>Title</b>: <input type="text" ng-model="toAdd.title"><br>
-          <b>Artist</b>: <input type="text" ng-model="toAdd.artist"><br>
-          <b>Material</b>: <input type="text" ng-model="toAdd.material"><br>
-          <b>Country</b>: <input type="text" ng-model="toAdd.country"><br>
-          <b>Period</b>: <input type="text" ng-model="toAdd.period"><br>
+          <table class="table">
+          <tr>
+            <td><b>Title</b>:</td>
+            <td><input type="text" ng-model="toAdd.title"></td>
+          </tr>
+          <tr>
+            <td><b>Artist</b>:</td>
+            <td><input type="text" ng-model="toAdd.artist"></td>
+          </tr>
+          <tr>
+            <td><b>Material</b>:</td>
+            <td><input type="text" ng-model="toAdd.material"></td>
+          </tr>
+          <tr>
+            <td><b>Country</b>:</td>
+            <td><input type="text" ng-model="toAdd.country"></td>
+          </tr>
+          <tr>
+            <td><b>Period</b>:</td>
+            <td><input type="text" ng-model="toAdd.period"></td>
+          </tr>
+          </table>
         </form>
 
         <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToAdd(event.fpfile)"  />
