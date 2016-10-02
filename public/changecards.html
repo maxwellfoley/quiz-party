@@ -56,7 +56,7 @@
         </div>
         <div class="col-md-6" >
           <img class="img-responsive" ng-src="{{piece.image}}">
-          <div>
+          <div ng-show="$index == edited" class-"center-block text-center">
             <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToEdit(event.fpfile)"  />
           </div>
         </div>
