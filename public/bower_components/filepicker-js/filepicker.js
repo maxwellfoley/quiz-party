@@ -3544,7 +3544,7 @@ filepicker.extend("widgets", function() {
     var constructPickWidget = function(domElement) {
         var widget = document.createElement("button");
         widget.setAttribute("type", "button");
-        widget.innerHTML = domElement.getAttribute("data-fp-button-text") || "Upload Imagex";
+        widget.innerHTML = domElement.getAttribute("data-fp-button-text") || "Upload Image";
         widget.className = domElement.getAttribute("data-fp-button-class") || domElement.className || "fp__btn";
         domElement.style.display = "none";
         var fpoptions = constructOptions(domElement);
@@ -3602,7 +3602,7 @@ filepicker.extend("widgets", function() {
         domElement.parentNode.insertBefore(pane, domElement.nextSibling);
         var pickButton = document.createElement("button");
         pickButton.setAttribute("type", "button");
-        pickButton.innerHTML = domElement.getAttribute("data-fp-button-text") || "Pick File";
+        pickButton.innerHTML = domElement.getAttribute("data-fp-button-text") || "Upload Image";
         pickButton.className = domElement.getAttribute("data-fp-button-class") || "fp__btn";
         pane.appendChild(pickButton);
         var dragPane = document.createElement("div");
