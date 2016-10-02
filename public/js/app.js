@@ -256,6 +256,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
       console.log( $routeParams.set);
 
       $scope.set = $routeParams.set;
+      $scope.toAdd = {};
 
       Contacts.getContacts($routeParams.set).then(function(doc) {
         console.log("we here boy");
