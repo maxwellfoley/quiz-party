@@ -1,4 +1,17 @@
 
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+      <div class="navbar-brand" href="#/">QuizParty</div>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/changecards/{{set}}">Edit cards</a></li>
+        <li class="active"><a href="#/quiz/{{set}}">Get quizzed</a></li>
+      </ul>
+    </div>
+</nav>
+
     <div id="quizItself">
       <h2>Guess the image</h2>
       <p class="text-center"><img ng-src="{{current.image}}" class="img-rounded mainQuiz" style="width: 500px;"></p><br>
