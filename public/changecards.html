@@ -52,11 +52,13 @@
             </tr>
             </table>
           </form>
-          <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToEdit(event.fpfile)"  />
 
         </div>
         <div class="col-md-6" >
           <img class="img-responsive" ng-src="{{piece.image}}">
+          <div>
+            <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToEdit(event.fpfile)"  />
+          </div>
         </div>
       </div>
 
