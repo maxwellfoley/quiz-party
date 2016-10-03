@@ -89,16 +89,16 @@ angular.module("QuizParty", ['ngRoute','angular-filepicker'])
                     console.log(response);
                 });
         }
-        this.deleteCard = function(set,contactId) {
+        this.deleteCard = function(set,cardId) {
 
 
-            var url = "/contacts/" + set + "/" + contactId;
+            var url = "/cards/" + set + "/" + cardId;
             return $http.delete(url).
                 then(function(response) {
                     //console.log("response" + EntityUtils.toString(response.getEntity()));
                     return response;
                 }, function(response) {
-                    alert("Error deleting this contact.");
+                    alert("Error deleting this card.");
                     console.log(response);
                 });
 
@@ -248,7 +248,7 @@ angular.module("QuizParty", ['ngRoute','angular-filepicker'])
 
 
       $scope.deleteCard = function( cardId) {
-          console.log("delete contact function");
+          console.log("delete card function");
           Cards.deleteCard($scope.set,cardId).then(function(doc){
             console.log("here");
             $route.reload();
