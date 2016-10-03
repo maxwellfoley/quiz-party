@@ -11,15 +11,15 @@
 
 <h3>Choose a set of cards</h3>
 
-<div ng-repeat="name in collectionNames" class="col-md-3 well">
-      <a ng-href="#/changecards/{{name}}"> <span ng-hide="name=='system.indexes'">{{name}}<br><br></span></a>
+<div ng-repeat="name in collectionNames" class="col-md-3 well center-block text-center">
+      <h2><a ng-href="#/changecards/{{name}}"> <span ng-hide="name=='system.indexes'">{{name}}<br><br></span></a></h2>
 
 </div>
 <br>
 <br>
 
 <div class="col-md-12">
-    
+
   <h3> Create new set of flashcards:</h3>
   <input type="text" ng-model="newName">
     <a ng-href="#/sets/" ng-click="newCollection(newName)">Go</a>
