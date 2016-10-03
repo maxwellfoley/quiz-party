@@ -12,7 +12,11 @@
 
 
 <div ng-repeat="name in collectionNames">
-  <a ng-href="#/changecards/{{name}}"> <span ng-hide="name=='system.indexes'">{{name}}<br><br></span></a>
+  <table class="table">
+    <tr>
+      <a ng-href="#/changecards/{{name}}"> <span ng-hide="name=='system.indexes'">{{name}}<br><br></span></a>
+    </tr>
+  </table>
 </div>
 <br>
 <br>
