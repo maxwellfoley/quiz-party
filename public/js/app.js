@@ -5,8 +5,8 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                     templateUrl: "quizlet.html",
                     controller: "FunkyController",
                     resolve: {
-                        cards: function(Contacts) {
-                            return Contacts.getContacts("cards");
+                        cards: function(Cards) {
+                            return Cards.getContacts("cards");
                         }
                     }
                 })
@@ -15,16 +15,16 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
               templateUrl: "changecards.html",
               controller: "ChangeCardsController",
               resolve: {
-                  cards: function(Contacts) {
+                  cards: function(Cards) {
 
-                      var crds = Contacts.getContacts("cards");
+                      var crds = Cards.getContacts("cards");
                       console.log("we got cards " + crds);
                       console.log(crds);
                       return crds;
                   },
-                  collections: function(Contacts) {
+                  collections: function(Cards) {
 
-                      var col = Contacts.getCollections();
+                      var col = Cards.getCollections();
                       console.log("the collections are " + col);
                       return col;
                   }
@@ -34,9 +34,9 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
               templateUrl: "sets.html",
               controller: "SetsController",
               resolve: {
-                collections: function(Contacts) {
+                collections: function(Cards) {
 
-                    var col = Contacts.getCollections();
+                    var col = Cards.getCollections();
                     console.log("the collections are " + col);
                     return col;
                 }
@@ -48,7 +48,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
             filepickerProvider.setKey("AWX9VlO2hTR2EWljLfbPoz");
     })
-    .service("Contacts", function($http) {
+    .service("Cards", function($http) {
         this.getContacts = function(setName) {
             console.log("getting cards now");
             return $http.get("/collection/"+setName).
@@ -130,7 +130,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
         $scope.set = $routeParams.set;
 
-        Contacts.getContacts($routeParams.set).then(function(doc) {
+        Cards.getContacts($routeParams.set).then(function(doc) {
           console.log("we here boy");
             $scope.pieces = doc.data;
 
@@ -193,21 +193,21 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         }
 
     })
-    .controller("NewContactController", function($scope, $location, Contacts) {
+    .controller("NewContactController", function($scope, $location, Cards) {
         $scope.back = function() {
             $location.path("#/");
         }
 
         $scope.saveContact = function(contact) {
-            Contacts.createContact(contact).then(function(doc) {
-                var contactUrl = "/contact/" + doc.data._id;
+            Cards.createContact(contact).then(function(doc) {
+                Cards contactUrl = "/contact/" + doc.data._id;
                 $location.path(contactUrl);
             }, function(response) {
                 alert(response);
             });
         }
     })
-    .controller("SetsController", function(collections, $scope, Contacts) {
+    .controller("SetsController", function(collections, $scope, Cards) {
 
         $scope.collectionNamesRaw = collections;
 
@@ -225,12 +225,12 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         $scope.newCollection = function(name)
         {
           console.log("bginning new collection");
-          Contacts.addCollection(name);
+          Cards.addCollection(name);
 
         }
 
     })
-    .controller("ChangeCardsController", function(cards, collections, $scope, $routeParams, $route, Contacts) {
+    .controller("ChangeCardsController", function(cards, collections, $scope, $routeParams, $route, Cards) {
       console.log("change cards controller");
       console.log( $routeParams.set);
 
