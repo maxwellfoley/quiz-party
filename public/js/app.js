@@ -90,7 +90,6 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                 });
         }
         this.deleteContact = function(set,contactId) {
-          console.log("beginning of delete contact");
 
 
             var url = "/contacts/" + set + "/" + contactId;
@@ -106,7 +105,6 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
         }
         this.getCollections = function(){
-          console.log("were in the beginning of get collections");
 
           return $http.get("/sets").
             then(function(response) {
@@ -117,7 +115,6 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                 alert("Error finding collections!!.");
             });
 
-            console.log("will this ever trigger?");
         }
         this.addCollection = function(collectionName) {
           console.log("beginning of add collection");
@@ -128,13 +125,6 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
             });
 
         }
-        this.barf = function()
-        {
-            console.log("why am i here");
-        }
-    })
-    .controller("ListController", function(contacts, $scope) {
-        $scope.contacts = contacts.data;
     })
     .controller("FunkyController", function(cards, $scope, $routeParams, Contacts) {
 
@@ -324,31 +314,4 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
       }
 
 
-    })
-    .controller("EditContactController", function($scope, $routeParams, Contacts) {
-        Contacts.getContact($routeParams.contactId).then(function(doc) {
-            $scope.contact = doc.data;
-        }, function(response) {
-            alert(response);
-        });
-
-        $scope.toggleEdit = function() {
-            $scope.editMode = true;
-            $scope.contactFormUrl = "contact-form.html";
-        }
-
-        $scope.back = function() {
-            $scope.editMode = false;
-            $scope.contactFormUrl = "";
-        }
-
-        $scope.saveContact = function(contact) {
-            Contacts.editContact(contact);
-            $scope.editMode = false;
-            $scope.contactFormUrl = "";
-        }
-
-        $scope.deleteContact = function(contactId) {
-            Contacts.deleteContact(contactId);
-        }
     });
