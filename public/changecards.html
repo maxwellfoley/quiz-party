@@ -73,11 +73,11 @@
         </div>
       </div>
 
-        <button style="margin-top:20px" class="btn btn-default" ng-click="editContact($index)">
+        <button style="margin-top:20px" class="btn btn-default" ng-click="editCard($index)">
           <span ng-hide="$index == edited">Edit</span>
           <span ng-show="$index == edited">Done</span>
         </button>
-        <a href="#/changecards"><button style="margin-top:20px" class="btn btn-default" ng-click="deleteContact(piece._id)">Delete</button></a>
+        <a href="#/changecards"><button style="margin-top:20px" class="btn btn-default" ng-click="deleteCard(piece._id)">Delete</button></a>
         <!-- ng-click="deleteContact(piece._id)"-->
     <!--  </div>-->
     </div>
@@ -117,7 +117,7 @@
           <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToAdd(event.fpfile)"  />
         </div>
         <div class="col-md-12 center-block text-center">
-          <button ng-show="adding" style="margin-top:20px" class="btn btn-primary btn-lg active" ng-click="addContactDone()">Done</button>
+          <button ng-show="adding" style="margin-top:20px" class="btn btn-primary btn-lg active" ng-click="addCardDone()">Done</button>
         </div>
       </div>
 
@@ -125,7 +125,7 @@
       <br>
 
       <div class="col-md-12 center-block text-center" ng-hide="adding">
-        <button class="btn btn-primary btn-lg active" ng-click="addContact()">Add a card</button>
+        <button class="btn btn-primary btn-lg active" ng-click="addCard()">Add a card</button>
       </div>
 
 </div>
