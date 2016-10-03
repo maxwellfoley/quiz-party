@@ -4,8 +4,6 @@ var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
-var CONTACTS_COLLECTION = "cards";
-
 var app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
@@ -31,7 +29,6 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   });
 });
 
-// CONTACTS API ROUTES BELOW
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
@@ -39,50 +36,36 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-/*  "/contacts"
- *    GET: finds all contacts
- *    POST: creates a new contact
- */
-
 app.get("/collection/:id", function(req, res) {
   db.collection(req.params.id).find({}).toArray(function(err, docs) {
     if (err) {
-      handleError(res, err.message, "Failed to get contacts.");
+      handleError(res, err.message, "Failed to get cards.");
     } else {
       res.status(200).json(docs);
     }
   });
 });
 
-app.post("/contacts/:set", function(req, res) {
-  var newContact = req.body;
-  newContact.createDate = new Date();
+app.post("/cards/:set", function(req, res) {
+  var newCard = req.body;
+  newCard.createDate = new Date();
 
-  /*
-  if (!(req.body.firstName || req.body.lastName)) {
-    handleError(res, "Invalid user input", "Must provide a first or last name.", 400);
-  }
-*/
 
-  db.collection(req.params.set).insertOne(newContact, function(err, doc) {
+  db.collection(req.params.set).insertOne(newCard, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to create new contact.");
+      handleError(res, err.message, "Failed to create new card.");
     } else {
       res.status(201).json(doc.ops[0]);
     }
   });
 });
 
-/*  "/contacts/:id"
- *    GET: find contact by id
- *    PUT: update contact by id
- *    DELETE: deletes contact by id
- */
 
-app.get("/contacts/:set/:id", function(req, res) {
+
+app.get("/cards/:set/:id", function(req, res) {
   db.collection(req.params.set).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to get contact");
+      handleError(res, err.message, "Failed to get card");
     } else {
       res.status(200).json(doc);
     }
@@ -118,24 +101,24 @@ app.put("/sets/:id", function(req, res) {
   }*/
 });
 
-app.put("/contacts/:set/:id", function(req, res) {
+app.put("/cards/:set/:id", function(req, res) {
   var updateDoc = req.body;
   delete updateDoc._id;
 
   db.collection(req.params.set).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to update contact");
+      handleError(res, err.message, "Failed to update card");
     } else {
       res.status(204).end();
     }
   });
 });
 
-app.delete("/contacts/:set/:id", function(req, res) {
+app.delete("/cards/:set/:id", function(req, res) {
   db.collection(req.params.set).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
     if (err) {
       console.log("error in deletion");
-      handleError(res, err.message, "Failed to delete contact");
+      handleError(res, err.message, "Failed to delete card");
     } else {
       console.log("no error");
       res.status(204).end();

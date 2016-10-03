@@ -1,4 +1,4 @@
-angular.module("contactsApp", ['ngRoute','angular-filepicker'])
+angular.module("QuizParty", ['ngRoute','angular-filepicker'])
     .config(function($routeProvider, filepickerProvider) {
         $routeProvider
             .when("/quiz/:set", {
@@ -259,12 +259,12 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
           });
       }
 
-      $scope.editCard = function(contactId)
+      $scope.editCard = function(cardId)
       {
-        if($scope.edited == contactId)
+        if($scope.edited == cardId)
         {
-          console.log("the thing to be edited " + $scope.pieces[contactId]._id);
-          Cards.editCard($scope.set,$scope.pieces[contactId]);
+          console.log("the thing to be edited " + $scope.pieces[cardId]._id);
+          Cards.editCard($scope.set,$scope.pieces[cardId]);
           $scope.edited = -1;
         }
         else
