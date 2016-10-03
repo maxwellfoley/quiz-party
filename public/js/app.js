@@ -6,7 +6,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                     controller: "FunkyController",
                     resolve: {
                         cards: function(Cards) {
-                            return Cards.getContacts("cards");
+                            return Cards.getCards("cards");
                         }
                     }
                 })
@@ -17,7 +17,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
               resolve: {
                   cards: function(Cards) {
 
-                      var crds = Cards.getContacts("cards");
+                      var crds = Cards.getCards("cards");
                       console.log("we got cards " + crds);
                       console.log(crds);
                       return crds;
@@ -49,7 +49,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
             filepickerProvider.setKey("AWX9VlO2hTR2EWljLfbPoz");
     })
     .service("Cards", function($http) {
-        this.getContacts = function(setName) {
+        this.getCards = function(setName) {
             console.log("getting cards now");
             return $http.get("/collection/"+setName).
                 then(function(response) {
@@ -61,7 +61,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
             console.log("end of getting cards function");
         }
-        this.createContact = function(set,contact) {
+        this.createCard = function(set,contact) {
             return $http.post("/contacts/"+set, contact).
                 then(function(response) {
                     return response;
@@ -69,7 +69,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                     alert("Error creating contact.");
                 });
         }
-        this.getContact = function(set,contactId) {
+        this.getCard = function(set,contactId) {
             var url = "/contacts/" + set + "/" + contactId;
             return $http.get(url).
                 then(function(response) {
@@ -78,7 +78,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                     alert("Error finding this contact.");
                 });
         }
-        this.editContact = function(set,contact) {
+        this.editCard = function(set,contact) {
             var url = "/contacts/" + set + "/" + contact._id;
             console.log(contact._id);
             return $http.put(url, contact).
@@ -89,7 +89,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                     console.log(response);
                 });
         }
-        this.deleteContact = function(set,contactId) {
+        this.deleteCard = function(set,contactId) {
 
 
             var url = "/contacts/" + set + "/" + contactId;
@@ -130,7 +130,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
         $scope.set = $routeParams.set;
 
-        Cards.getContacts($routeParams.set).then(function(doc) {
+        Cards.getCards($routeParams.set).then(function(doc) {
           console.log("we here boy");
             $scope.pieces = doc.data;
 
@@ -193,20 +193,6 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         }
 
     })
-    .controller("NewContactController", function($scope, $location, Cards) {
-        $scope.back = function() {
-            $location.path("#/");
-        }
-
-        $scope.saveContact = function(contact) {
-            Cards.createContact(contact).then(function(doc) {
-                var contactUrl = "/contact/" + doc.data._id;
-                $location.path(contactUrl);
-            }, function(response) {
-                alert(response);
-            });
-        }
-    })
     .controller("SetsController", function(collections, $scope, Cards) {
 
         $scope.collectionNamesRaw = collections;
@@ -237,7 +223,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
       $scope.set = $routeParams.set;
       $scope.toAdd = {};
 
-      Cards.getContacts($routeParams.set).then(function(doc) {
+      Cards.getCards($routeParams.set).then(function(doc) {
         console.log("we here boy");
           $scope.pieces = doc.data;
       }, function(response) {
@@ -263,9 +249,9 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
 
 
-      $scope.deleteContact = function( contactId) {
+      $scope.deleteCard = function( contactId) {
           console.log("delete contact function");
-          Cards.deleteContact($scope.set,contactId).then(function(doc){
+          Cards.deleteCard($scope.set,contactId).then(function(doc){
             console.log("here");
             $route.reload();
             console.log("after");
@@ -273,12 +259,12 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
           });
       }
 
-      $scope.editContact = function(contactId)
+      $scope.editCard = function(contactId)
       {
         if($scope.edited == contactId)
         {
           console.log("the thing to be edited " + $scope.pieces[contactId]._id);
-          Cards.editContact($scope.set,$scope.pieces[contactId]);
+          Cards.editCard($scope.set,$scope.pieces[contactId]);
           $scope.edited = -1;
         }
         else
@@ -287,14 +273,14 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
         }
       }
 
-      $scope.addContact = function()
+      $scope.addCard = function()
       {
         $scope.adding = true;
       }
-      $scope.addContactDone = function()
+      $scope.addCardDone = function()
       {
 
-        Cards.createContact($scope.set,$scope.toAdd).then(function(doc) {
+        Cards.createCard($scope.set,$scope.toAdd).then(function(doc) {
             //var contactUrl = "/contact/" + doc.data._id;
           //  $location.path(contactUrl);
           $route.reload();
