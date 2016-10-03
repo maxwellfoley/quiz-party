@@ -200,7 +200,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
 
         $scope.saveContact = function(contact) {
             Cards.createContact(contact).then(function(doc) {
-                Cards contactUrl = "/contact/" + doc.data._id;
+                var contactUrl = "/contact/" + doc.data._id;
                 $location.path(contactUrl);
             }, function(response) {
                 alert(response);
