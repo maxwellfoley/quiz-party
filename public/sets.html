@@ -10,13 +10,9 @@
 </nav>
 
 
-
-<div ng-repeat="name in collectionNames">
-  <table class="table">
-    <tr>
+<div ng-repeat="name in collectionNames" class="col-md-3 well">
       <a ng-href="#/changecards/{{name}}"> <span ng-hide="name=='system.indexes'">{{name}}<br><br></span></a>
-    </tr>
-  </table>
+
 </div>
 <br>
 <br>
