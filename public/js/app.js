@@ -10,18 +10,7 @@ angular.module("contactsApp", ['ngRoute','angular-filepicker'])
                         }
                     }
                 })
-            .when("/new/contact", {
-                controller: "NewContactController",
-                templateUrl: "contact-form.html"
-            })
-            .when("/contact/:contactId", {
-                controller: "EditContactController",
-                templateUrl: "contact.html"
-            })
-            .when("/quiz_other", {
-              templateUrl: "quizlet.html",
-              controller: "HelloWorldController"
-            })
+
             .when("/changecards/:set", {
               templateUrl: "changecards.html",
               controller: "ChangeCardsController",
