@@ -56,36 +56,36 @@ angular.module("QuizParty", ['ngRoute','angular-filepicker'])
                   console.log("found our cards");
                     return response;
                 }, function(response) {
-                    alert("Error finding contacts.");
+                    alert("Error finding cards.");
                 });
 
             console.log("end of getting cards function");
         }
-        this.createCard = function(set,contact) {
-            return $http.post("/contacts/"+set, contact).
+        this.createCard = function(set,card) {
+            return $http.post("/cards/"+set, card).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error creating contact.");
+                    alert("Error creating card.");
                 });
         }
-        this.getCard = function(set,contactId) {
-            var url = "/contacts/" + set + "/" + contactId;
+        this.getCard = function(set,cardId) {
+            var url = "/cards/" + set + "/" + cardId;
             return $http.get(url).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error finding this contact.");
+                    alert("Error finding this card.");
                 });
         }
-        this.editCard = function(set,contact) {
-            var url = "/contacts/" + set + "/" + contact._id;
-            console.log(contact._id);
-            return $http.put(url, contact).
+        this.editCard = function(set,card) {
+            var url = "/cards/" + set + "/" + card._id;
+            console.log(card._id);
+            return $http.put(url, card).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error editing this contact.");
+                    alert("Error editing this card.");
                     console.log(response);
                 });
         }
@@ -230,12 +230,10 @@ angular.module("QuizParty", ['ngRoute','angular-filepicker'])
           alert(response);
       });
 
-
-//     $scope.pieces = cards.data;
       $scope.edited = -1;
 
 
-      $scope.collectionNamesRaw = collections;//Contacts.getCollections();
+      $scope.collectionNamesRaw = collections;
       console.log("collections names raw " + collections);
 
       console.log($scope.collectionNamesRaw);
@@ -249,9 +247,9 @@ angular.module("QuizParty", ['ngRoute','angular-filepicker'])
 
 
 
-      $scope.deleteCard = function( contactId) {
+      $scope.deleteCard = function( cardId) {
           console.log("delete contact function");
-          Cards.deleteCard($scope.set,contactId).then(function(doc){
+          Cards.deleteCard($scope.set,cardId).then(function(doc){
             console.log("here");
             $route.reload();
             console.log("after");
@@ -269,7 +267,7 @@ angular.module("QuizParty", ['ngRoute','angular-filepicker'])
         }
         else
         {
-          $scope.edited = contactId;
+          $scope.edited = cardId;
         }
       }
 
