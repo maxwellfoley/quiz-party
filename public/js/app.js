@@ -279,8 +279,6 @@ angular.module("QuizParty", ['ngRoute','angular-filepicker'])
       {
 
         Cards.createCard($scope.set,$scope.toAdd).then(function(doc) {
-            //var contactUrl = "/contact/" + doc.data._id;
-          //  $location.path(contactUrl);
           $route.reload();
         }, function(response) {
             alert(response);
