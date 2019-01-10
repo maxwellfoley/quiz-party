@@ -17,11 +17,10 @@
     <!-- Masonry -->
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script>
-      // init Masonry
-      var $grid = $('.grid').masonry({ "itemSelector": ".grid-item", "columnWidth": 300 });
-      // layout Masonry after each image loads
-      $grid.imagesLoaded().progress( function() {
-        $grid.masonry('layout');
+      $('.grid').masonry({
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: 200
       });
     </script>
     
