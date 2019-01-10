@@ -12,7 +12,7 @@
           </ul>
         </div>
     </nav>
-      <div class="col-md-6 well" ng-repeat="piece in pieces">
+      <div class="col-md-6 well" style="height:350px" ng-repeat="piece in pieces">
         <div class="row">
           <div class="col-md-6" ng-hide="$index == edited">
             <table class="table">
@@ -66,7 +66,7 @@
 
           </div>
           <div class="col-md-6" >
-            <img class="img-responsive" ng-src="{{piece.image}}">
+            <img style="max-height:250px" ng-src="{{piece.image}}">
             <div ng-show="$index == edited" class-"center-block text-center">
               <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToEdit(event.fpfile)"  />
             </div>
