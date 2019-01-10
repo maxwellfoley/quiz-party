@@ -12,8 +12,7 @@
           </ul>
         </div>
     </nav>
-    <div class="grid">
-      <div class="grid-item well" style="width:300px" ng-repeat="piece in pieces">
+      <div class="col-md-6 well" ng-repeat="piece in pieces">
         <div class="row">
           <div class="col-md-6" ng-hide="$index == edited">
             <table class="table">
@@ -72,7 +71,6 @@
               <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToEdit(event.fpfile)"  />
             </div>
           </div>
-      </div>
 
         <button style="margin-top:20px" class="btn btn-default" ng-click="editCard($index)">
           <span ng-hide="$index == edited">Edit</span>
