@@ -1,4 +1,4 @@
-<div id="changeCards" class="container" style="width:800px">
+<div id="changeCards" class="container" style="width:800px;column-count:2">
   <!--<div id="cards" style="overflow:scroll; border:3px black solid; height:80vh">-->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-header">
@@ -12,7 +12,7 @@
           </ul>
         </div>
     </nav>
-      <div class="col-md-6 well" style="height:350px;margin-right:15px;" ng-repeat="piece in pieces">
+      <div class="well" ng-repeat="piece in pieces">
         <div class="row">
           <div class="col-md-6" ng-hide="$index == edited">
             <table class="table">
@@ -66,7 +66,7 @@
 
           </div>
           <div class="col-md-6" >
-            <img class="img-responsive" style="max-height:250px" ng-src="{{piece.image}}">
+            <img style="max-height:250px" ng-src="{{piece.image}}">
             <div ng-show="$index == edited" class-"center-block text-center">
               <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToEdit(event.fpfile)"  />
             </div>
