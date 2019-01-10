@@ -12,65 +12,66 @@
           </ul>
         </div>
     </nav>
-    <div class="col-md-6 well" ng-repeat="piece in pieces">
-      <div class="row">
-        <div class="col-md-6" ng-hide="$index == edited">
-          <table class="table">
-          <tr>
-            <td><b>Title</b>:</td>
-            <td>{{piece.title}}</td>
-          </tr>
-          <tr>
-            <td><b>Artist</b>:</td>
-            <td>{{piece.artist}}</td>
-          </tr>
-          <tr>
-            <td><b>Material</b>:</td>
-            <td>{{piece.material}}</td>
-          </tr>
-          <tr>
-            <td><b>Country</b>:</td>
-            <td>{{piece.country}}</td>
-          </tr>
-          <tr>
-            <td><b>Period</b>:</td>
-            <td>{{piece.period}}</td>
-          </tr>
-          </table>
-        </div>
-        <div class="col-md-6" ng-show="$index == edited">
-          <form novalidate class="simple-form">
+    <div class="grid">
+      <div class="grid-item well" style="width:400px" ng-repeat="piece in pieces">
+        <div class="row">
+          <div class="col-md-6" ng-hide="$index == edited">
             <table class="table">
             <tr>
               <td><b>Title</b>:</td>
-              <td><input type="text" ng-model="piece.title"></td>
+              <td>{{piece.title}}</td>
             </tr>
             <tr>
               <td><b>Artist</b>:</td>
-              <td><input type="text" ng-model="piece.artist"></td>
+              <td>{{piece.artist}}</td>
             </tr>
             <tr>
               <td><b>Material</b>:</td>
-              <td><input type="text" ng-model="piece.material"></td>
+              <td>{{piece.material}}</td>
             </tr>
             <tr>
               <td><b>Country</b>:</td>
-              <td><input type="text" ng-model="piece.country"></td>
+              <td>{{piece.country}}</td>
             </tr>
             <tr>
               <td><b>Period</b>:</td>
-              <td><input type="text" ng-model="piece.period"></td>
+              <td>{{piece.period}}</td>
             </tr>
             </table>
-          </form>
-
-        </div>
-        <div class="col-md-6" >
-          <img class="img-responsive" ng-src="{{piece.image}}">
-          <div ng-show="$index == edited" class-"center-block text-center">
-            <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToEdit(event.fpfile)"  />
           </div>
-        </div>
+          <div class="col-md-6" ng-show="$index == edited">
+            <form novalidate class="simple-form">
+              <table class="table">
+              <tr>
+                <td><b>Title</b>:</td>
+                <td><input type="text" ng-model="piece.title"></td>
+              </tr>
+              <tr>
+                <td><b>Artist</b>:</td>
+                <td><input type="text" ng-model="piece.artist"></td>
+              </tr>
+              <tr>
+                <td><b>Material</b>:</td>
+                <td><input type="text" ng-model="piece.material"></td>
+              </tr>
+              <tr>
+                <td><b>Country</b>:</td>
+                <td><input type="text" ng-model="piece.country"></td>
+              </tr>
+              <tr>
+                <td><b>Period</b>:</td>
+                <td><input type="text" ng-model="piece.period"></td>
+              </tr>
+              </table>
+            </form>
+
+          </div>
+          <div class="col-md-6" >
+            <img class="img-responsive" ng-src="{{piece.image}}">
+            <div ng-show="$index == edited" class-"center-block text-center">
+              <input filepicker type="filepicker" data-fp-services="computer,facebook,webcam,box" class="btn btn-default" on-success="imageToEdit(event.fpfile)"  />
+            </div>
+          </div>
       </div>
 
         <button style="margin-top:20px" class="btn btn-default" ng-click="editCard($index)">
@@ -80,6 +81,7 @@
         <a href="#/changecards/{{set}}"><button style="margin-top:20px" class="btn btn-default" ng-click="deleteCard(piece._id)">Delete</button></a>
     <!--  </div>-->
     </div>
+  </div>
 <br>
 <br>
 
